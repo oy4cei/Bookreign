@@ -44,9 +44,18 @@
       "verification": "All three localized privacy URLs saved. Reload confirmed Ukrainian URL persisted and all missing-URL banners disappeared."
     },
     "support": {
-      "status": "not_configured_by_this_task",
-      "note": "Support pages are public; App Store Connect Support URL fields were not edited."
+      "status": "saved_for_uk_en_ru",
+      "verified_on": "2026-10-04",
+      "verification": "Localized support-uk.html, support-en.html and support-ru.html URLs saved in App Store Connect; save success confirmed."
     }
   },
-  "app_privacy_submission": "User completed App Store Connect; observed published Data Not Collected label. Not an independent audit of third-party collection or retention."
+  "app_privacy_submission": "User completed App Store Connect; observed published Data Not Collected label. Not an independent audit of third-party collection or retention.",
+  "app_store_connect_category": {
+    "primary": "Books",
+    "observed_label": "Книги",
+    "status": "saved",
+    "verified_on": "2026-10-04",
+    "verification": "App Store Connect save success confirmed."
+  },
+  "app_review_contact_status": "Name and email are user-confirmed but not yet persisted in App Store Connect; phone requested, awaiting user response."
 }

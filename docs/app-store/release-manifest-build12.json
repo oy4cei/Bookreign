@@ -155,7 +155,7 @@
     "status": "local_draft_only",
     "app_store_connect_field": "empty",
     "reason": "Saving review notes required mandatory reviewer contact fields; clearing the notes allowed the version card to save",
-    "review_contact_status": "User confirmed Ievgen Tsvietkov and oy4cei@gmail.com; App Review phone is unconfirmed. Saving these fields in App Store Connect has not been verified.",
+    "review_contact_status": "User confirmed Ievgen Tsvietkov and oy4cei@gmail.com; these fields are not yet persisted in App Store Connect. Phone requested, awaiting user response.",
     "contact_values_invented": false
   },
   "remaining_submission_inputs": [
@@ -205,8 +205,9 @@
         "verification": "All three localized privacy URLs saved. Reload confirmed Ukrainian URL persisted and all missing-URL banners disappeared."
       },
       "support": {
-        "status": "not_configured_by_this_task",
-        "note": "Support pages are public; App Store Connect Support URL fields were not edited."
+        "status": "saved_for_uk_en_ru",
+        "verified_on": "2026-10-04",
+        "verification": "Localized support-uk.html, support-en.html and support-ru.html URLs saved in App Store Connect; save success confirmed."
       }
     }
   },
@@ -215,5 +216,12 @@
     "observed_label": "Data Not Collected",
     "status": "published_in_app_store_connect",
     "independent_third_party_assessment": "Not established by this website publication task"
+  },
+  "app_store_category": {
+    "primary": "Books",
+    "observed_label": "Книги",
+    "status": "saved",
+    "verified_on": "2026-10-04",
+    "verification": "App Store Connect save success confirmed."
   }
 }

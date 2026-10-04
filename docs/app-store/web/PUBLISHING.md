@@ -12,7 +12,7 @@ The developer and public support/privacy contact, confirmed by the user, are **I
 | English | [Support](https://oy4cei.github.io/Bookreign/support-en.html) | [Privacy](https://oy4cei.github.io/Bookreign/privacy-en.html) |
 | Russian | [Support](https://oy4cei.github.io/Bookreign/support-ru.html) | [Privacy](https://oy4cei.github.io/Bookreign/privacy-ru.html) |
 
-The privacy-policy URLs were saved in App Store Connect for Ukrainian, English and Russian on 4 October 2026. Reloading confirmed that the Ukrainian URL persisted and all missing-URL banners disappeared. The App Store Connect Support URL fields were not edited in this task; the support pages are public and ready to use.
+The privacy-policy URLs were saved in App Store Connect for Ukrainian, English and Russian on 4 October 2026. Reloading confirmed that the Ukrainian URL persisted and all missing-URL banners disappeared. The localized Support URL fields were also saved for Ukrainian, English and Russian on 4 October 2026, with save success confirmed. The primary App Store category was saved as Books (Книги). App Review contact completion is still in progress: name and email are confirmed but not yet persisted; the phone number has been requested from the user.
 
 ## Update and publish
 
