@@ -152,14 +152,16 @@
     "ru": "Uses uploaded Ukrainian iPhone and iPad galleries; localized Russian images exist locally only"
   },
   "review_notes": {
-    "status": "local_draft_only",
-    "app_store_connect_field": "empty",
-    "reason": "Saving review notes required mandatory reviewer contact fields; clearing the notes allowed the version card to save",
-    "review_contact_status": "User confirmed Ievgen Tsvietkov and oy4cei@gmail.com; these fields are not yet persisted in App Store Connect. Phone requested, awaiting user response.",
-    "contact_values_invented": false
+    "status": "saved_in_app_store_connect",
+    "language": "en",
+    "source_file": "docs/app-store/metadata/en/reviewnotes.txt",
+    "verified_on": "2026-10-04",
+    "review_contact_status": "User-confirmed first name, last name, email and phone saved successfully; contact validation errors cleared.",
+    "contact_values_invented": false,
+    "phone": null,
+    "phone_status": "stored_in_app_store_connect_only"
   },
   "remaining_submission_inputs": [
-    "App Review phone and confirmation of saved contact fields; then save prepared review notes",
     "Confirm catalog terms of use",
     "Complete age rating",
     "Set price and distribution countries"
@@ -223,5 +225,15 @@
     "status": "saved",
     "verified_on": "2026-10-04",
     "verification": "App Store Connect save success confirmed."
+  },
+  "app_review_draft": {
+    "status": "ready_for_review",
+    "observed_status": "Готово к проверке",
+    "version": "1.0.0",
+    "build": "12",
+    "verified_on": "2026-10-04",
+    "validation": "Add for Review passed validation and created the review draft.",
+    "final_submit_action": "not_clicked",
+    "submitted_to_app_review": false
   }
 }

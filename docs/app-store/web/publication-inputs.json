@@ -57,5 +57,17 @@
     "verified_on": "2026-10-04",
     "verification": "App Store Connect save success confirmed."
   },
-  "app_review_contact_status": "Name and email are user-confirmed but not yet persisted in App Store Connect; phone requested, awaiting user response."
+  "app_review_contact_status": "User-confirmed contact details saved successfully in App Store Connect on 2026-10-04; contact validation errors cleared.",
+  "app_review_contact_phone_status": "stored_in_app_store_connect_only",
+  "app_review_notes_status": "English review notes saved successfully in App Store Connect on 2026-10-04.",
+  "app_review_draft": {
+    "status": "ready_for_review",
+    "observed_status": "Готово к проверке",
+    "version": "1.0.0",
+    "build": "12",
+    "verified_on": "2026-10-04",
+    "validation": "Add for Review passed validation and created the review draft.",
+    "final_submit_action": "not_clicked",
+    "submitted_to_app_review": false
+  }
 }
