@@ -1,18 +1,52 @@
 {
-  "status": "local_draft_not_published",
+  "status": "published",
   "prepared_on": "2026-10-02",
   "planned_first_version": "1.0.0",
-  "developer_legal_name": null,
-  "copyright_holder": null,
-  "support_contact": null,
-  "privacy_contact": null,
-  "policy_effective_date": null,
-  "hosting_provider": null,
-  "public_https_base_url": null,
-  "hosting_log_retention": null,
-  "support_message_retention": null,
+  "developer_legal_name": "Ievgen Tsvietkov",
+  "copyright_holder": "Ievgen Tsvietkov",
+  "support_contact": "oy4cei@gmail.com",
+  "privacy_contact": "oy4cei@gmail.com",
+  "policy_effective_date": "2026-10-04",
+  "hosting_provider": "GitHub Pages",
+  "public_https_base_url": "https://oy4cei.github.io/Bookreign/",
+  "hosting_log_retention": "Managed by GitHub under its Privacy Statement; no fixed period asserted.",
+  "support_message_retention": "Stored in the developer mailbox until deleted; deletion may be requested by email. Gmail provider handling and retention follow Google Privacy Policy.",
   "app_privacy_assessment": "requires_third_party_collection_and_retention_review",
-  "app_review_contact_name": null,
-  "app_review_contact_email": null,
-  "app_review_contact_phone": null
+  "app_review_contact_name": "Ievgen Tsvietkov",
+  "app_review_contact_email": "oy4cei@gmail.com",
+  "app_review_contact_phone": null,
+  "updated_on": "2026-10-04",
+  "published_on": "2026-10-04",
+  "verified_on": "2026-10-04",
+  "https_enforced": true,
+  "publishing_branch": "gh-pages",
+  "publishing_folder": "/",
+  "published_commit": "b02b5311435bcdba0113f7e3695813a05492e232",
+  "verification": "All seven HTML pages and styles.css returned HTTP 200 and matched local bytes.",
+  "public_urls": {
+    "uk": {
+      "support": "https://oy4cei.github.io/Bookreign/support-uk.html",
+      "privacy": "https://oy4cei.github.io/Bookreign/privacy-uk.html"
+    },
+    "en": {
+      "support": "https://oy4cei.github.io/Bookreign/support-en.html",
+      "privacy": "https://oy4cei.github.io/Bookreign/privacy-en.html"
+    },
+    "ru": {
+      "support": "https://oy4cei.github.io/Bookreign/support-ru.html",
+      "privacy": "https://oy4cei.github.io/Bookreign/privacy-ru.html"
+    }
+  },
+  "app_store_connect_url_fields": {
+    "privacy_policy": {
+      "status": "saved_for_uk_en_ru",
+      "verified_on": "2026-10-04",
+      "verification": "All three localized privacy URLs saved. Reload confirmed Ukrainian URL persisted and all missing-URL banners disappeared."
+    },
+    "support": {
+      "status": "not_configured_by_this_task",
+      "note": "Support pages are public; App Store Connect Support URL fields were not edited."
+    }
+  },
+  "app_privacy_submission": "User completed App Store Connect; observed published Data Not Collected label. Not an independent audit of third-party collection or retention."
 }

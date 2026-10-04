@@ -1,42 +1,47 @@
-# Local support and privacy page drafts
+# Published support and privacy pages
 
-These are static, responsive HTML files for a future public Support URL and Privacy Policy URL. They have not been hosted or submitted. No domain, email address, developer identity or policy effective date has been invented. The visible draft/contact notices and `noindex` make their current status explicit.
+The Bookreign website is public at [oy4cei.github.io/Bookreign](https://oy4cei.github.io/Bookreign/), hosted on GitHub Pages with HTTPS enforced. Deployment was verified on 4 October 2026: all seven HTML pages and the stylesheet returned HTTP 200 and matched the local files byte for byte. The deployed commit is `b02b5311435bcdba0113f7e3695813a05492e232` on `gh-pages`, publishing from `/`.
 
-## Files
+The developer and public support/privacy contact, confirmed by the user, are **Ievgen Tsvietkov** and **oy4cei@gmail.com**. The privacy policy is effective 4 October 2026. Website publication does not mean the application has been released in the App Store.
 
-- `index.html` — language chooser.
-- `support-uk.html`, `support-en.html`, `support-ru.html` — localized support and FAQs.
-- `privacy-uk.html`, `privacy-en.html`, `privacy-ru.html` — localized privacy notices.
-- `styles.css` — shared responsive light/dark stylesheet, system fonts, no external assets or script.
-- `publication-inputs.json` — unresolved publication inputs; null means not supplied, not an empty approved value.
+## Public URLs
 
-Preview locally from the repository root:
+| Language | Support | Privacy policy |
+| --- | --- | --- |
+| Ukrainian | [Support](https://oy4cei.github.io/Bookreign/support-uk.html) | [Privacy](https://oy4cei.github.io/Bookreign/privacy-uk.html) |
+| English | [Support](https://oy4cei.github.io/Bookreign/support-en.html) | [Privacy](https://oy4cei.github.io/Bookreign/privacy-en.html) |
+| Russian | [Support](https://oy4cei.github.io/Bookreign/support-ru.html) | [Privacy](https://oy4cei.github.io/Bookreign/privacy-ru.html) |
+
+The privacy-policy URLs were saved in App Store Connect for Ukrainian, English and Russian on 4 October 2026. Reloading confirmed that the Ukrainian URL persisted and all missing-URL banners disappeared. The App Store Connect Support URL fields were not edited in this task; the support pages are public and ready to use.
+
+## Update and publish
+
+Edit the seven HTML files or `styles.css` in `docs/app-store/web`. Keep contact details, language links and privacy disclosures consistent across locales. Preview from the repository root:
 
 ```sh
 python3 -m http.server 8788 --directory docs/app-store/web
 ```
 
-Then open the local server's `/index.html`. A local preview is not a Support URL suitable for App Store Connect.
+Check the updated pages, including a narrow mobile viewport, and publish from the repository root:
 
-## Complete before hosting
+```sh
+python3 Scripts/publish-website.py
+```
 
-1. Confirm the developer/publisher's legal identity and copyright holder. Add the identity to all six content pages and any legal details that apply to that publisher.
-2. Supply a real public support email or other working contact and a privacy contact (they may be the same). Replace every `data-contact-pending` block with that contact, retaining useful support instructions. Confirm how voluntarily submitted support messages are used, who receives them, and their retention period; add that practice to every privacy page. Do not claim support messages are never collected.
-3. Supply the actual HTTPS host/domain and verify its logging, analytics and retention settings. Update the website-processing section in every privacy page with the confirmed provider/practices. The current local files have no analytics/cookies/scripts, but hosting itself can create request logs.
-4. Confirm an effective date, complete the privacy assessment for the release and remove `data-publication-pending` banners when the text is accurate. Remove `noindex` if indexing is desired. `Prepared 2 October 2026` is a preparation date, not a legal effective date.
-5. Upload the HTML and stylesheet together, preserving relative filenames. Confirm all six pages work over public HTTPS without authentication and at a narrow mobile viewport. Check language links and actual contact links. Paste the chosen locale-specific URLs into App Store Connect only after they exist.
-6. Keep `App/PrivacyPolicyView.swift` and `App/Localization/Privacy.json` consistent with policy changes. The native notice currently opens offline; it does not pretend that a hosted URL or contact exists.
+The script uses the configured Git credentials and publishes only the seven HTML files, `styles.css` and `.nojekyll` to `origin/gh-pages`. It leaves `main`, the working tree and the normal staging area unchanged. It preserves the existing publishing history and never force-pushes; a concurrent update can reject the push and must be inspected before retrying. It exits without another commit when the website content is unchanged.
 
-## Facts and remaining assessment
+GitHub Pages must continue to use branch `gh-pages` and folder `/`. Wait for the Pages deployment to complete, then verify the public HTTPS pages and stylesheet against the local files. `PUBLISHING.md` and `publication-inputs.json` are project records and are not deployed by this script.
 
-App behavior was checked against `README.md`, `App/SettingsView.swift`, `App/AddBookView.swift`, `App/CoverEditor.swift`, `App/Design.swift`, `Sources/BookCatalog/BookCatalog.swift`, `Sources/BookCatalog/MBooksCatalog.swift`, `Sources/BookCatalog/CoverSearch.swift` and the library models.
+## Data handling and review status
 
-The app stores the library in local SQLite, uses local preferences/scan queue, has no account system or built-in advertising/usage analytics, processes photo OCR with Apple Vision on the device, and has no developer-operated library-upload endpoint in the reviewed code. This does not mean no data leaves the device. ISBN/text search, cover display/import and browser search send requests to external services. User-selected file providers and system backups can also receive copies.
+The app stores the library in local SQLite and keeps preferences and the scanning queue on the device. OCR uses Apple Vision on the device. The reviewed code has no account system, built-in advertising or usage analytics, or developer-operated library-upload endpoint. Catalog searches, remote covers and browser searches send requests to external services; user-selected file providers and system backups can also receive copies.
 
-The privacy notices explicitly cover ISBN/query requests to Open Library and `api.mbooks.com.ua`, automatic remote cover loading (including `covers.openlibrary.org` and catalog-provided hosts), Google image search opened by the user, direct user-specified HTTPS image imports and redirects, local borrowers/photos/notes, exports, retention/deletion and offline use. Image hosts are data-dependent and are not an exhaustive fixed allowlist.
+The public notices describe the additional catalog through its actual privacy-policy link without adding its brand to the user-facing text. They also cover local borrowers/photos/notes, exports, deletion, direct HTTPS image imports and redirects. Image hosts depend on catalog results and user choices.
 
-**App Privacy is not finalized.** Before choosing its labels, determine the relevant third parties' collection and retention for the actual API/cover requests. Apple's [App Privacy guidance](https://developer.apple.com/app-store/app-privacy-details/) bases collection on access beyond the time needed to serve a request, including relevant partners. No SDK analytics does not by itself establish “Data Not Collected.” MEGOGO BOOKS' [published privacy policy](https://mbooks.com.ua/about/polityka-obrobky-personalnykh-danykh/) discusses search history and variable retention but does not establish anonymous API-request retention for this app. The pages do not certify a retention duration or completed questionnaire.
+Support emails, including voluntarily attached files, are received by Ievgen Tsvietkov through Gmail to answer requests and provide support. They remain in the developer mailbox until deleted; deletion may be requested by email. Google’s own handling and retention follow its privacy policy. No fixed retention duration or automatic deletion deadline is asserted.
 
-The [Apple Support URL requirement](https://developer.apple.com/help/app-store-connect/reference/app-information/platform-version-information/) calls for actual contact details; the unresolved contact notices are release blockers, not publishable substitutes. Apple also requires a [privacy-policy URL](https://developer.apple.com/help/app-store-connect/reference/app-information/app-information/). Sources checked 2 October 2026.
+GitHub Pages records visitor IP addresses for security, as explained in [GitHub Pages documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection). Hosting logs are governed by the [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement). The page files contain no analytics, scripts, advertising, remote images or third-party fonts.
 
-No screenshots, book covers or other third-party creative assets are included in these web pages. Screenshots for the listing still require rights-cleared content and release-build verification in the wider submission workflow.
+The user completed App Privacy in App Store Connect; the observed interface shows the published “Data Not Collected” label. This records the user’s submitted choice, not an independent verification of all third-party collection or retention practices. The public pages do not certify external providers’ retention periods. App Review submission and public release remain separate; the App Review phone number is still unconfirmed.
+
+`App/PrivacyPolicyView.swift` and `App/Localization/Privacy.json` provide the native offline notice. Future policy changes should keep its description of app behavior consistent with the website. No screenshots, book covers or other third-party creative assets are included in these web pages.
