@@ -1,0 +1,53 @@
+{
+  "status": "design proposals, not implemented",
+  "recommendedName": "ORDICT / Ордикт",
+  "tagline": "Каждая книга под контролем.",
+  "iconsRecommended": [
+    "02-ranks",
+    "04-watch"
+  ],
+  "assets": [
+    {
+      "id": "01-monolith",
+      "name": "Монолит",
+      "file": "01-monolith.png",
+      "generationID": "exec-b6e8036f-394d-4795-a1da-7669f5d91653"
+    },
+    {
+      "id": "02-ranks",
+      "name": "Строй",
+      "file": "02-ranks.png",
+      "generationID": "exec-936a99d0-ea40-4b10-9f8a-d6713fa8d8a4"
+    },
+    {
+      "id": "03-seal",
+      "name": "Печать",
+      "file": "03-seal.png",
+      "generationID": "exec-bad061ea-71d3-4c50-96b9-24ff0dcc28c0"
+    },
+    {
+      "id": "04-watch",
+      "name": "Надзор",
+      "file": "04-watch.png",
+      "generationID": "exec-d49fabec-4ffb-4e83-8448-83ceefbaf95c"
+    },
+    {
+      "id": "05-citadel",
+      "name": "Цитадель",
+      "file": "05-citadel.png",
+      "generationID": "exec-e16550d8-1fb5-4fd8-aa79-f53e4921b586"
+    },
+    {
+      "id": "06-command",
+      "name": "Устав",
+      "file": "06-command.png",
+      "generationID": "exec-769af00b-2e93-4731-907a-31593ab8f165"
+    },
+    {
+      "id": "ui",
+      "name": "Концепция интерфейса ORDICT",
+      "file": "ui.png",
+      "generationID": "exec-ad1b7948-4859-453a-b722-49cda3c5afa4"
+    }
+  ]
+}

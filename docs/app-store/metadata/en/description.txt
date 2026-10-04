@@ -1,0 +1,24 @@
+Your books. In their places.
+
+Bookreign helps you keep track of the paper books you own, the shelves where they belong and the copies you lend to others. Built for iPhone and iPad, with no account required.
+
+ADD BOOKS YOUR WAY
+Scan a barcode, enter an ISBN, search by title or author, or add a book manually. You can also recognize text from a cover photo on your device. Check the matching edition and cover before saving. Keep a scanning queue and complete missing details later.
+
+FIND A PLACE FOR EVERY COPY
+Keep multiple copies of the same edition, assign storage locations and shelves, and move the visible selection to another place. Browse a list or grid, search your library, or explore authors and genres in Topics.
+
+REMEMBER WHAT YOU LENT
+Record the borrower, lending date and an optional due date. See outstanding loans in Places and mark books as returned while keeping their history. Due dates are shown in the app; reminder notifications are not included.
+
+MAKE THE DETAILS YOURS
+Edit book details, notes and genres. Choose another cover from a catalog, a photo, your camera or a direct HTTPS image link. Preview the cover before confirming.
+
+KEEP A COPY OF YOUR LIBRARY
+The library is stored on your device. Save a JSON backup with books, stored cover photos, locations and lending history, or export CSV for a spreadsheet. Restoring a JSON backup replaces the current library after confirmation. The pending scanning queue is stored separately and is not included in backups.
+
+Choose Ukrainian, Russian or English for the interface and a light, dark or system appearance.
+
+Online searches use Open Library and may also use additional book catalogs for ISBN lookups. Results and cover availability depend on those services; you can always enter details manually. Catalog and image requests send the relevant query or image request to external services. Photo text recognition runs on the device. There are no ads, accounts or built-in usage analytics. Manual entry and saved book details work offline; online searches and remotely hosted covers require a connection.
+
+Requires iOS or iPadOS 17 or later.

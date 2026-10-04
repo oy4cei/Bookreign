@@ -1,0 +1,13 @@
+Bookreign 1.0.0 is a personal catalog of physical books for iPhone and iPad (iOS/iPadOS 17+). No sign-in, account, paid content, subscription or in-app purchase is required inside the app. The first launch starts with an empty personal library.
+
+Suggested review path:
+1. In Books, tap Add book. The scanner opens. Camera use requires a real device and permission. Use Other ways for manual entry, title search or a cover photo.
+2. For an offline check, manually add a fictional book, for example title "Review sample", author "Sample author". Choose a location and confirm. No catalog account is needed.
+3. Open the saved book, edit details, select or photograph a cover, and confirm. Use only an image you have permission to use.
+4. Create a location in Places. Move the copy there. Lend it to a sample borrower, then open Places > On loan and mark it returned.
+5. In Topics, filter by author or genre. In Settings, switch the interface language or appearance and open the privacy policy.
+6. Save a JSON backup via Files. Add another test book, then restore the backup and confirm replacement. CSV is export-only; the pending scan queue is excluded from JSON backups.
+
+Network-dependent features: Open Library receives an ISBN or title/author query. ISBN lookup may additionally query api.mbooks.com.ua. Cover images load from third-party image hosts. The image-search action opens Google; direct HTTPS cover import requests the user-selected URL. Manual entry remains available when a catalog is unavailable or a book has no match. OCR uses Apple Vision on device and does not upload the photo.
+
+There are no return reminders, family synchronization or ebook reading. Borrowers are entered manually; Contacts permission is not requested. Please use the release build's normal interface; no launch arguments, fixtures or demo account are required.

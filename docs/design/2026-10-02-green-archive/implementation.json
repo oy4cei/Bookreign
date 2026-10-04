@@ -1,0 +1,106 @@
+{
+  "date": "2026-10-02",
+  "version": "1.0.0",
+  "build": 9,
+  "themes": {
+    "light": {
+      "name": "Зелёный переплёт",
+      "background": "#F1EBDD",
+      "header": "#1C4036",
+      "text": "#201F1A"
+    },
+    "dark": {
+      "name": "Ночной архив",
+      "background": "#102C25",
+      "surface": "#1C4036",
+      "text": "#F1EBDD"
+    },
+    "system": "Follows device appearance; existing saved preference is retained."
+  },
+  "scope": [
+    "Library grid and list",
+    "Opaque archive navigation and three tabs",
+    "Scanner and ISBN confirmation",
+    "Manual entry and metadata editing",
+    "Book detail and alternate covers",
+    "Places and loans",
+    "Topics, author/genre filters",
+    "Settings and privacy"
+  ],
+  "localization": {
+    "languages": [
+      "uk",
+      "en",
+      "ru"
+    ],
+    "unique_keys": 345,
+    "resource_files": 8,
+    "literal_calls": 364,
+    "errors": 0
+  },
+  "verification": {
+    "iphone": {
+      "device": "iPhone 17 Pro simulator",
+      "scenarios_with_successful_result": 15,
+      "full_run": {
+        "passed": 13,
+        "failed": 2,
+        "result": "/private/tmp/polka-green-archive-build9-ui.xcresult"
+      },
+      "followups": [
+        {
+          "scenario": "List, search, Return-key dismissal and persistence",
+          "result": "passed",
+          "bundle": "/private/tmp/polka-green-archive-build9-targeted.xcresult"
+        },
+        {
+          "scenario": "Loan, return, history and relaunch",
+          "result": "passed",
+          "bundle": "/private/tmp/polka-green-archive-build9-final-targeted.xcresult"
+        },
+        {
+          "scenario": "Largest accessibility text and layout controls",
+          "result": "passed",
+          "bundle": "/private/tmp/polka-green-archive-build9-accessibility-final.xcresult"
+        }
+      ],
+      "note": "The full run is not reported as wholly passing. Follow-up test fixes replace a stale native-tab selector and explicitly scroll virtualized/offscreen content; the accessibility test uses short slow drags to avoid overshooting. No app behavior was changed to bypass these assertions."
+    },
+    "ipad": {
+      "device": "iPad Pro 13-inch (M5) simulator",
+      "passed": 2,
+      "failed": 0,
+      "result": "/private/tmp/polka-green-archive-build9-ipad.xcresult"
+    },
+    "device_build": {
+      "result": "BUILD SUCCEEDED",
+      "log": "/private/tmp/polka-green-archive-device-final.log"
+    },
+    "review": "Independent read-only review found no blocking issues; actual iPhone and iPad screenshots inspected."
+  },
+  "physical_install": {
+    "device": "iPhone 15 Pro Max",
+    "previous_version": "0.4.0 (7)",
+    "installed_version": "1.0.0 (9)",
+    "installation": "succeeded",
+    "version_readback": "confirmed",
+    "launch": "blocked by locked device; no successful physical launch claimed",
+    "library_backup": "/private/tmp/polka-iphone-before-build9",
+    "post_install_copy": "/private/tmp/polka-iphone-after-build9",
+    "database_integrity_before": "ok",
+    "database_integrity_after": "ok",
+    "database_bytes_equal": true,
+    "payload_sha256": "1690d47063be8a4a935787bbc72cc415a5c19a3b0bda3040da260e05ee81f73e",
+    "counts_preserved": {
+      "editions": 4,
+      "copies": 4,
+      "locations": 2,
+      "loans": 0
+    }
+  },
+  "captures": {
+    "iphone": "implemented/iphone/captures.json",
+    "ipad": "implemented/ipad/captures.json"
+  },
+  "release_note": "Build 8 App Store archive/IPA remain historical. Build 9 was installed locally; it has not been uploaded or submitted to App Store Connect."
+}

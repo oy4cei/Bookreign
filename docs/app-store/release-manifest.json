@@ -1,0 +1,161 @@
+{
+  "prepared_on": "2026-10-02",
+  "version": "1.0.0",
+  "build": "8",
+  "bundle_identifier": "com.bookslibrary.polka",
+  "minimum_ios": "17.0",
+  "uploaded": false,
+  "submitted_for_review": false,
+  "ipa": {
+    "path": "Release/AppStore-1.0.0-8/Polka.ipa",
+    "bytes": 714314,
+    "sha256": "f83564fb04adebe54c2d53ee3347b02308011b25cb723211e0aa6d9a632f62b4"
+  },
+  "archive": "Release/Polka-1.0.0-8.xcarchive",
+  "screenshots": [
+    {
+      "path": "docs/app-store/screenshots/en/ipad-13/01-library-grid.png",
+      "width": 2064,
+      "height": 2752,
+      "sha256": "4d45b2e532db762039d0e1baab6b05d8a76c51f299403a3d79c6bec4c007bb99"
+    },
+    {
+      "path": "docs/app-store/screenshots/en/ipad-13/02-library-list.png",
+      "width": 2064,
+      "height": 2752,
+      "sha256": "13343ba246ae6348a99a2ab6005285c42e260628ddd779a553cded4a264b74f8"
+    },
+    {
+      "path": "docs/app-store/screenshots/en/ipad-13/03-places.png",
+      "width": 2064,
+      "height": 2752,
+      "sha256": "bb02c3cb007d31b7c1a0deb5a696ac42db4c7fc77200ed6b763933abc536a730"
+    },
+    {
+      "path": "docs/app-store/screenshots/en/ipad-13/04-topics.png",
+      "width": 2064,
+      "height": 2752,
+      "sha256": "4d898eb25c52bde34e2dfa3de80ecb04a739da003f92bfc18114716f4707be63"
+    },
+    {
+      "path": "docs/app-store/screenshots/en/iphone-6.9/01-library-grid.png",
+      "width": 1320,
+      "height": 2868,
+      "sha256": "db0d3f46aa0b5ab9fa1f2e168c28d3a4ae1f01f2a38140b1e5c30bf2fd75040a"
+    },
+    {
+      "path": "docs/app-store/screenshots/en/iphone-6.9/02-library-list.png",
+      "width": 1320,
+      "height": 2868,
+      "sha256": "b8b060481502f89033418f6fd6a80e1bbd569e75b8ad82f8bebe13cbd5670785"
+    },
+    {
+      "path": "docs/app-store/screenshots/en/iphone-6.9/03-places.png",
+      "width": 1320,
+      "height": 2868,
+      "sha256": "739ed3f8d0c731333d04575ee13bb229bb53b5ea8003e7fc0ef8f40081c92265"
+    },
+    {
+      "path": "docs/app-store/screenshots/en/iphone-6.9/04-topics.png",
+      "width": 1320,
+      "height": 2868,
+      "sha256": "dc6ad16a944767cb37d72c7cd7ec32425db29d9b1ef829d8838a036fa50ab106"
+    },
+    {
+      "path": "docs/app-store/screenshots/ru/ipad-13/01-library-grid.png",
+      "width": 2064,
+      "height": 2752,
+      "sha256": "f22948f8a4098ef0509d1d0ca253b4af07a99c8f95a2fae66339762ac9896988"
+    },
+    {
+      "path": "docs/app-store/screenshots/ru/ipad-13/02-library-list.png",
+      "width": 2064,
+      "height": 2752,
+      "sha256": "f0f63650db95ffb1b234368b22befbc4403a19400598148e9bfd5711387cac6b"
+    },
+    {
+      "path": "docs/app-store/screenshots/ru/ipad-13/03-places.png",
+      "width": 2064,
+      "height": 2752,
+      "sha256": "90109c61747244eb643b3a11655c237b4796ad5d27e2378f2543c5ea339710e8"
+    },
+    {
+      "path": "docs/app-store/screenshots/ru/ipad-13/04-topics.png",
+      "width": 2064,
+      "height": 2752,
+      "sha256": "8de1587a9b44d0f155f9546dc81b97c1abe6face43c6fd0f84fee37eea679c9b"
+    },
+    {
+      "path": "docs/app-store/screenshots/ru/iphone-6.9/01-library-grid.png",
+      "width": 1320,
+      "height": 2868,
+      "sha256": "5c7f3cba7dafb877de3845a2a93cb5a7de91a0efc97624ec38374d5887b20af8"
+    },
+    {
+      "path": "docs/app-store/screenshots/ru/iphone-6.9/02-library-list.png",
+      "width": 1320,
+      "height": 2868,
+      "sha256": "105d012ca9d071a6ca0a6b82eb9d0366cd2ee8e4ad03ad9cb5559e5c9b928e29"
+    },
+    {
+      "path": "docs/app-store/screenshots/ru/iphone-6.9/03-places.png",
+      "width": 1320,
+      "height": 2868,
+      "sha256": "c8df4dd1eda74f7a096ef6cf7fd1374ac6e379f2df6970cf9e2678ec72b3f7a8"
+    },
+    {
+      "path": "docs/app-store/screenshots/ru/iphone-6.9/04-topics.png",
+      "width": 1320,
+      "height": 2868,
+      "sha256": "6fd6fc29e962034666f1fd7e71ca3566e26427ef9e5d40d25f4fa1e05a80a689"
+    },
+    {
+      "path": "docs/app-store/screenshots/uk/ipad-13/01-library-grid.png",
+      "width": 2064,
+      "height": 2752,
+      "sha256": "69bab20637d9c927215b78f67effb22436e81c0b16a093a98119a9bc302f01ea"
+    },
+    {
+      "path": "docs/app-store/screenshots/uk/ipad-13/02-library-list.png",
+      "width": 2064,
+      "height": 2752,
+      "sha256": "db8addc24df1455cfcc60d8f7a1d1d69a26729749857edebce5b97192edf2a5b"
+    },
+    {
+      "path": "docs/app-store/screenshots/uk/ipad-13/03-places.png",
+      "width": 2064,
+      "height": 2752,
+      "sha256": "8a29b2072a8158260e242c7a6cdf079401b5de26556991465d7e967bea24cf0d"
+    },
+    {
+      "path": "docs/app-store/screenshots/uk/ipad-13/04-topics.png",
+      "width": 2064,
+      "height": 2752,
+      "sha256": "b25daf2d372b00501784c55bc12c6fe8372c4566799ef8a0f842cb3d7f314b6b"
+    },
+    {
+      "path": "docs/app-store/screenshots/uk/iphone-6.9/01-library-grid.png",
+      "width": 1320,
+      "height": 2868,
+      "sha256": "52193e77b34c970c824f6fc703b1d8c5c7e0e8d8af137dca5fe92066235057d8"
+    },
+    {
+      "path": "docs/app-store/screenshots/uk/iphone-6.9/02-library-list.png",
+      "width": 1320,
+      "height": 2868,
+      "sha256": "1af644879d064da566c7ed93a015f9fb795537a1a771c69dd11e138e61656bf6"
+    },
+    {
+      "path": "docs/app-store/screenshots/uk/iphone-6.9/03-places.png",
+      "width": 1320,
+      "height": 2868,
+      "sha256": "f4ae0dfdc5be3774f8fe0c7918469114ab8f4bffce5d5909585e81ed9f9cf6cc"
+    },
+    {
+      "path": "docs/app-store/screenshots/uk/iphone-6.9/04-topics.png",
+      "width": 1320,
+      "height": 2868,
+      "sha256": "57279914c0ca845fd2d41033fd7f0b3a478baf8e3832c2812636b7e001fe67d3"
+    }
+  ]
+}

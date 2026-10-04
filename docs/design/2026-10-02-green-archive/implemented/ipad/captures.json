@@ -1,0 +1,150 @@
+{
+  "version": "1.0.0",
+  "build": 9,
+  "captures": [
+    {
+      "file": "night-archive-confirmation.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPad Pro 13-inch (M5)"
+    },
+    {
+      "file": "night-archive-scanner.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPad Pro 13-inch (M5)"
+    },
+    {
+      "file": "night-archive-topics.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPad Pro 13-inch (M5)"
+    },
+    {
+      "file": "night-archive-places.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPad Pro 13-inch (M5)"
+    },
+    {
+      "file": "night-archive-library-list.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPad Pro 13-inch (M5)"
+    },
+    {
+      "file": "night-archive-library-grid.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPad Pro 13-inch (M5)"
+    },
+    {
+      "file": "night-archive-settings.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPad Pro 13-inch (M5)"
+    },
+    {
+      "file": "green-binding-confirmation.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPad Pro 13-inch (M5)"
+    },
+    {
+      "file": "green-binding-scanner.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPad Pro 13-inch (M5)"
+    },
+    {
+      "file": "green-binding-topics.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPad Pro 13-inch (M5)"
+    },
+    {
+      "file": "green-binding-places.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPad Pro 13-inch (M5)"
+    },
+    {
+      "file": "green-binding-library-list.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPad Pro 13-inch (M5)"
+    },
+    {
+      "file": "green-binding-library-grid.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPad Pro 13-inch (M5)"
+    },
+    {
+      "file": "green-binding-settings.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPad Pro 13-inch (M5)"
+    },
+    {
+      "file": "accessibility-xxxl-library-list.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "test": "ArchiveThemeScreenshotTests/testLibraryControlsRemainReachableAtLargestAccessibilityTextSize()",
+      "device": "iPad Pro 13-inch (M5)"
+    },
+    {
+      "file": "accessibility-xxxl-library-heading.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "test": "ArchiveThemeScreenshotTests/testLibraryControlsRemainReachableAtLargestAccessibilityTextSize()",
+      "device": "iPad Pro 13-inch (M5)"
+    }
+  ]
+}

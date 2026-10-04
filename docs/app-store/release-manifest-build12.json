@@ -1,0 +1,179 @@
+{
+  "app_name": "Bookreign",
+  "version": "1.0.0",
+  "build": "12",
+  "date": "2026-10-04",
+  "bundle_id": "com.bookslibrary.polka",
+  "app_store_id": "6819029934",
+  "primary_locale": "uk",
+  "app_store_connect_url": "https://appstoreconnect.apple.com/apps/6819029934/distribution",
+  "archive": "Release/Bookreign-1.0.0-12.xcarchive",
+  "ipa": "Release/AppStore-1.0.0-12/Polka.ipa",
+  "ipa_bytes": 781626,
+  "ipa_sha256": "4860de7e41befe351073ff0413fef322605a2610f43dbfc22ba27938b463fd04",
+  "upload": {
+    "tool": "Transporter",
+    "status": "delivered_and_processed",
+    "time": "2026-10-04 17:41 Europe/Kyiv",
+    "processing": "Apple processing completed; build 12 is available in App Store Connect",
+    "cli_attempt": "Failed to Use Accounts; Transporter upload succeeded",
+    "proof": "docs/app-store/build12-upload.png"
+  },
+  "validation": {
+    "unit_passed": 91,
+    "unit_failed": 0,
+    "archive_checks_passed": 29,
+    "archive_checks_failed": 0,
+    "ui_passed": 7,
+    "ui_failed": 0,
+    "localization_errors": 0
+  },
+  "store_metadata": {
+    "uk": "Description, promotional text and keywords saved in App Store Connect",
+    "en-US": "Description, promotional text and keywords saved in App Store Connect",
+    "ru": "Description, promotional text and keywords saved in App Store Connect"
+  },
+  "screenshots_uploaded": {
+    "uk": {
+      "iphone-6.9": 4,
+      "ipad-13": 4
+    }
+  },
+  "screenshots": [
+    {
+      "path": "docs/app-store/screenshots-build12/en/ipad-13/01-library-grid.png",
+      "sha256": "89b28f527618586005de4ac29cd28c60b98ef303289c766d9831befcc82814b1"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/en/ipad-13/02-library-list.png",
+      "sha256": "e5bfae1852517a0f9370fdf5831fb25604493f7064f647f72111d3d33b013a0a"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/en/ipad-13/03-places.png",
+      "sha256": "64c3f6bc3443a0fac40e28eb610c7dfe6fa8c186e7b69d23948e58a080177bf5"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/en/ipad-13/04-topics.png",
+      "sha256": "2f9a86a7c689adf74a19f51fcb67793cca40ba8aa28ee83f063cafb4712853ff"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/en/iphone-6.9/01-library-grid.png",
+      "sha256": "eea1442c51b5893523d26b79fd378dffdddb55e0c8cd9a280628f5704f30d7bc"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/en/iphone-6.9/02-library-list.png",
+      "sha256": "ca0b69a3c39f95dbc278b06c1300f6ef9a75d8b76a86d8faa0707bd5efff8993"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/en/iphone-6.9/03-places.png",
+      "sha256": "cc3f84f9fecec68d102810636ec35d8e0839496f07c0054bf0716fe9cc73866c"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/en/iphone-6.9/04-topics.png",
+      "sha256": "51fdeced53db849ffe903fc315f5ec6a6615c2efc6ef1123ab5b6b46228a7abf"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/ru/ipad-13/01-library-grid.png",
+      "sha256": "330fccc5cb5c6e6e4dddea69c137d62ae30b55f60ecb3877c61187351efc2f95"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/ru/ipad-13/02-library-list.png",
+      "sha256": "9e06bbb5da09b5e4d42d68c6c7787fefbfaa7353f2e0a680ffa518be87b8f2de"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/ru/ipad-13/03-places.png",
+      "sha256": "ff5b17a4e696a9f8c899583e2144166e1cce01cd17b4703b06e11ca1ac6a9fd8"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/ru/ipad-13/04-topics.png",
+      "sha256": "e8727cf205cc39cf8ef28c4f5c966ccf4c2dfdb5c6a7d57878a4e1e9cc2662f7"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/ru/iphone-6.9/01-library-grid.png",
+      "sha256": "75023a40575ab7276050f63d6134a5dd2aaa519b69b2387c144af406cfc123e5"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/ru/iphone-6.9/02-library-list.png",
+      "sha256": "037292b6e35f682776599fb7103e9c995c9d40d231c612def908e3d9d5694efc"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/ru/iphone-6.9/03-places.png",
+      "sha256": "dae7a3385cedd9b129873401b9c95966f244b9132aac649be687f476e494ee0f"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/ru/iphone-6.9/04-topics.png",
+      "sha256": "610bf2f433ccf159c05f2501baee32e1511a5cf7b19e9c9fdf5671fc8bea6312"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/uk/ipad-13/01-library-grid.png",
+      "sha256": "ce99cd79d29e36311ef5302de6266c47800b3acfc46503b9c852c2d17af42f17"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/uk/ipad-13/02-library-list.png",
+      "sha256": "2b93280f965be5775ede705030a0bdf8436eff4186b5de66d01a6b0d9dc7209b"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/uk/ipad-13/03-places.png",
+      "sha256": "e73d92e235589df5267c49aa0a30b4de9e78be3bc8023c818418a0c784dfc2c5"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/uk/ipad-13/04-topics.png",
+      "sha256": "63911bfe2940654b17cf85e488b346d1ef5c35af94853ca9c48fcf3d238bf188"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/uk/iphone-6.9/01-library-grid.png",
+      "sha256": "e9b3946f08f71fb50d2a5b0b261a2b1abadb8d2575714ec5b8e412fb558cbdd4"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/uk/iphone-6.9/02-library-list.png",
+      "sha256": "e0a2eca022d371128a6305a8dc07a27fac626210d86d6a021806afd5c2e5764b"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/uk/iphone-6.9/03-places.png",
+      "sha256": "67bbe4e57715372606ece49c1c1d811af1f7be58c88bb667ddd769d547691899"
+    },
+    {
+      "path": "docs/app-store/screenshots-build12/uk/iphone-6.9/04-topics.png",
+      "sha256": "4bf79debc2e25610528246991ba345d12f93d0669bf47d8b49c78f1f9f1fa4be"
+    }
+  ],
+  "known_screenshot_note": "iPad system date is Russian in all locale captures; app interface follows each selected language.",
+  "submission_status": "not submitted for review",
+  "published": false,
+  "app_store_version_id": "49af0d42-2e4f-4c8f-8a53-db65bb863d33",
+  "build_selection": {
+    "build": "12",
+    "version": "1.0.0",
+    "status": "selected_and_saved",
+    "app_store_version_id": "49af0d42-2e4f-4c8f-8a53-db65bb863d33"
+  },
+  "screenshots_inheritance": {
+    "en-US": "Uses uploaded Ukrainian iPhone and iPad galleries; localized English images exist locally only",
+    "ru": "Uses uploaded Ukrainian iPhone and iPad galleries; localized Russian images exist locally only"
+  },
+  "review_notes": {
+    "status": "local_draft_only",
+    "app_store_connect_field": "empty",
+    "reason": "Saving review notes required mandatory reviewer contact fields; clearing the notes allowed the version card to save",
+    "review_contact_status": "Requested first name, last name, email and phone from the user; awaiting response",
+    "contact_values_invented": false
+  },
+  "remaining_submission_inputs": [
+    "Real public support and privacy contact",
+    "Publisher identity and copyright holder",
+    "Published HTTPS support and privacy policy pages",
+    "App Review first name, last name, email and phone; then save prepared review notes",
+    "Complete App Privacy assessment",
+    "Confirm catalog terms of use",
+    "Complete age rating",
+    "Set price and distribution countries"
+  ],
+  "testflight": {
+    "version": "1.0.0",
+    "build": "12",
+    "observed_status": "Готово к отправке",
+    "expires_in_days_at_verification": 90,
+    "verified_on": "2026-10-04",
+    "proof": "docs/app-store/build12-upload.png"
+  }
+}

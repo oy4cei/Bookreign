@@ -1,0 +1,150 @@
+{
+  "version": "1.0.0",
+  "build": 9,
+  "captures": [
+    {
+      "file": "night-archive-confirmation.png",
+      "pixels": [
+        1206,
+        2622
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPhone 17 Pro"
+    },
+    {
+      "file": "night-archive-scanner.png",
+      "pixels": [
+        1206,
+        2622
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPhone 17 Pro"
+    },
+    {
+      "file": "night-archive-topics.png",
+      "pixels": [
+        1206,
+        2622
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPhone 17 Pro"
+    },
+    {
+      "file": "night-archive-places.png",
+      "pixels": [
+        1206,
+        2622
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPhone 17 Pro"
+    },
+    {
+      "file": "night-archive-library-list.png",
+      "pixels": [
+        1206,
+        2622
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPhone 17 Pro"
+    },
+    {
+      "file": "night-archive-library-grid.png",
+      "pixels": [
+        1206,
+        2622
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPhone 17 Pro"
+    },
+    {
+      "file": "night-archive-settings.png",
+      "pixels": [
+        1206,
+        2622
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPhone 17 Pro"
+    },
+    {
+      "file": "green-binding-confirmation.png",
+      "pixels": [
+        1206,
+        2622
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPhone 17 Pro"
+    },
+    {
+      "file": "green-binding-scanner.png",
+      "pixels": [
+        1206,
+        2622
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPhone 17 Pro"
+    },
+    {
+      "file": "green-binding-topics.png",
+      "pixels": [
+        1206,
+        2622
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPhone 17 Pro"
+    },
+    {
+      "file": "green-binding-places.png",
+      "pixels": [
+        1206,
+        2622
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPhone 17 Pro"
+    },
+    {
+      "file": "green-binding-library-list.png",
+      "pixels": [
+        1206,
+        2622
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPhone 17 Pro"
+    },
+    {
+      "file": "green-binding-library-grid.png",
+      "pixels": [
+        1206,
+        2622
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPhone 17 Pro"
+    },
+    {
+      "file": "green-binding-settings.png",
+      "pixels": [
+        1206,
+        2622
+      ],
+      "test": "ArchiveThemeScreenshotTests/testArchiveThemesAcrossLibraryAndBookConfirmation()",
+      "device": "iPhone 17 Pro"
+    },
+    {
+      "file": "accessibility-xxxl-library-list.png",
+      "pixels": [
+        1206,
+        2622
+      ],
+      "test": "ArchiveThemeScreenshotTests/testLibraryControlsRemainReachableAtLargestAccessibilityTextSize()",
+      "device": "iPhone 17 Pro"
+    },
+    {
+      "file": "accessibility-xxxl-library-heading.png",
+      "pixels": [
+        1206,
+        2622
+      ],
+      "test": "ArchiveThemeScreenshotTests/testLibraryControlsRemainReachableAtLargestAccessibilityTextSize()",
+      "device": "iPhone 17 Pro"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-04",
+  "version": "1.0.0",
+  "build": "11",
+  "change": "Remove provider branding from user-facing copy in Russian, Ukrainian and English while preserving search and Ukrainian edition preference.",
+  "provider_source_unchanged": true,
+  "provider_source_sha256": {
+    "Sources/BookCatalog/CatalogGenres.swift": "8af4db9ec26906e45d96070c98e012ba98b148928532c37d792a580d5f1e157e",
+    "Sources/BookCatalog/CatalogTransport.swift": "64a1dcb057a12e0a68fc9bd8adec510e77668e59da08ea7c1704f830579c0b6e",
+    "Sources/BookCatalog/ISBNInputFormatting.swift": "c7ec725090af9d814fb36a1d4dafa1ddb946dd2b1d7fe4ccf42aa182013ba210",
+    "Sources/BookCatalog/MBooksCatalog.swift": "4e41665e3c4521d97620e866d7ed6da7ff6d3effe1215c812a11c0e3dc1308a1",
+    "Sources/BookCatalog/CoverSearch.swift": "67dfd4e88e2efa28acc229aec6bda24d0e6c7fcfce5342ea8405020c6fd1e7ac",
+    "Sources/BookCatalog/BookCatalog.swift": "966178b21b9760c6dd3682b1aebfc3cdb20212df30ec7a48255919045d41421a"
+  },
+  "localization_audit": {
+    "keys": 343,
+    "resources": 8,
+    "literal_calls": 362,
+    "errors": 0
+  },
+  "catalog_tests": {
+    "passed": 11,
+    "failed": 0,
+    "log": "/private/tmp/polka-build11-catalog-tests.log"
+  },
+  "ui_tests": {
+    "passed": 1,
+    "failed": 0,
+    "scenario": "testScannerEnterPrefersUkrainianEditionAndAllowsChangingVariant",
+    "result": "/private/tmp/polka-brand-copy-build11.xcresult"
+  },
+  "device_build": {
+    "status": "succeeded",
+    "path": "/private/tmp/polka-green-archive-device/Build/Products/Debug-iphoneos/Polka.app"
+  },
+  "device_install": "Not performed; phone unavailable. Last installed build: 10.",
+  "public_drafts": "Descriptions and privacy pages updated locally in ru, uk and en; not published."
+}

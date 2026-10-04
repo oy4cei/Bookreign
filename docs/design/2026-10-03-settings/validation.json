@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-03",
+  "version": "1.0.0",
+  "build": 10,
+  "change": "Removed the Search and privacy section from Settings; kept a single privacy-policy link under the app version and moved catalog links into the policy.",
+  "apple_requirement": "https://developer.apple.com/app-store/review/guidelines/#data-collection-and-storage",
+  "localization": {
+    "keys": 342,
+    "literal_calls": 361,
+    "errors": 0
+  },
+  "existing_settings_ui_test": {
+    "result": "passed",
+    "bundle": "/private/tmp/polka-settings-build10.xcresult"
+  },
+  "device_build": "succeeded",
+  "phone_install": "1.0.0 (10), confirmed by device readback",
+  "library_preserved": "SQLite integrity ok; file and snapshot payload hashes identical before/after install; 5 editions, 5 copies, 2 locations, 0 loans.",
+  "backup": "/private/tmp/polka-iphone-before-build10"
+}

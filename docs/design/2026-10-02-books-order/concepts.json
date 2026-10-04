@@ -1,0 +1,88 @@
+{
+  "status": "Visual proposals for review; not implemented in the app",
+  "generation": "Built-in image_gen",
+  "iconReference": "../2026-10-02-authority/01-monolith.png",
+  "iconInvariants": "Preserve ivory book silhouette and red tab; vary background only",
+  "names": [
+    "BookOrder",
+    "ShelfOrder",
+    "The Book Order",
+    "Books in Order",
+    "Order of Books",
+    "Book Command",
+    "Book Regiment",
+    "Orderly Books"
+  ],
+  "nameAvailability": "Not checked",
+  "assets": [
+    {
+      "id": "01-ink",
+      "name": "Чернильный синий",
+      "background": "#172B46",
+      "file": "01-ink.png",
+      "prompt": "Use case: precise-object-edit. Edit target: the supplied square iOS icon \"Monolith\", an ivory upright closed book with a vermilion rectangular tab against black. Make a single background-color variant. Change ONLY the original almost-black background and the negative-space cutouts (the spine groove and the narrow opening above the book) to a uniform matte Чернильный синий #172B46. Keep the ivory book and its vermilion tab EXACTLY the same: shape, relative coordinates, width, height, outline, interior geometry, edge softness, ivory fill appearance, tab color, orientation, position, margins and composition. Do not redraw the book into a different design. Preserve the original square crop. The result is the same icon on a different solid color, no border, no rounded outer mask, no frame, no text, no extra mark, no new texture, no extra gradients, no shadows. Fill the entire canvas background with #172B46.",
+      "generationID": "exec-551dcdaa-60d6-4f72-ae81-fafdda3ec50f"
+    },
+    {
+      "id": "02-burgundy",
+      "name": "Бургунди",
+      "background": "#552734",
+      "file": "02-burgundy.png",
+      "prompt": "Use case: precise-object-edit. Edit target: the supplied square iOS icon \"Monolith\", an ivory upright closed book with a vermilion rectangular tab against black. Make a single background-color variant. Change ONLY the original almost-black background and the negative-space cutouts (the spine groove and the narrow opening above the book) to a uniform matte Бургунди #552734. Keep the ivory book and its vermilion tab EXACTLY the same: shape, relative coordinates, width, height, outline, interior geometry, edge softness, ivory fill appearance, tab color, orientation, position, margins and composition. Do not redraw the book into a different design. Preserve the original square crop. The result is the same icon on a different solid color, no border, no rounded outer mask, no frame, no text, no extra mark, no new texture, no extra gradients, no shadows. Fill the entire canvas background with #552734.",
+      "generationID": "exec-e815be40-da2d-493c-a329-cb9652e4fa69"
+    },
+    {
+      "id": "03-forest",
+      "name": "Глубокий зелёный",
+      "background": "#1C4036",
+      "file": "03-forest.png",
+      "prompt": "Use case: precise-object-edit. Edit target: the supplied square iOS icon \"Monolith\", an ivory upright closed book with a vermilion rectangular tab against black. Make a single background-color variant. Change ONLY the original almost-black background and the negative-space cutouts (the spine groove and the narrow opening above the book) to a uniform matte Глубокий зелёный #1C4036. Keep the ivory book and its vermilion tab EXACTLY the same: shape, relative coordinates, width, height, outline, interior geometry, edge softness, ivory fill appearance, tab color, orientation, position, margins and composition. Do not redraw the book into a different design. Preserve the original square crop. The result is the same icon on a different solid color, no border, no rounded outer mask, no frame, no text, no extra mark, no new texture, no extra gradients, no shadows. Fill the entire canvas background with #1C4036.",
+      "generationID": "exec-de934a7d-2abb-4dfd-89ad-57c015b8b969"
+    },
+    {
+      "id": "04-slate",
+      "name": "Стальной серый",
+      "background": "#485767",
+      "file": "04-slate.png",
+      "prompt": "Use case: precise-object-edit. Edit target: the supplied square iOS icon \"Monolith\", an ivory upright closed book with a vermilion rectangular tab against black. Make a single background-color variant. Change ONLY the original almost-black background and the negative-space cutouts (the spine groove and the narrow opening above the book) to a uniform matte Стальной серый #485767. Keep the ivory book and its vermilion tab EXACTLY the same: shape, relative coordinates, width, height, outline, interior geometry, edge softness, ivory fill appearance, tab color, orientation, position, margins and composition. Do not redraw the book into a different design. Preserve the original square crop. The result is the same icon on a different solid color, no border, no rounded outer mask, no frame, no text, no extra mark, no new texture, no extra gradients, no shadows. Fill the entire canvas background with #485767.",
+      "generationID": "exec-2b164062-a2fe-41b8-94ec-b3b29e4c39bd"
+    },
+    {
+      "id": "05-cobalt",
+      "name": "Кобальт",
+      "background": "#2454AD",
+      "file": "05-cobalt.png",
+      "prompt": "Use case: precise-object-edit. Edit target: the supplied square iOS icon \"Monolith\", an ivory upright closed book with a vermilion rectangular tab against black. Make a single background-color variant. Change ONLY the original almost-black background and the negative-space cutouts (the spine groove and the narrow opening above the book) to a uniform matte Кобальт #2454AD. Keep the ivory book and its vermilion tab EXACTLY the same: shape, relative coordinates, width, height, outline, interior geometry, edge softness, ivory fill appearance, tab color, orientation, position, margins and composition. Do not redraw the book into a different design. Preserve the original square crop. The result is the same icon on a different solid color, no border, no rounded outer mask, no frame, no text, no extra mark, no new texture, no extra gradients, no shadows. Fill the entire canvas background with #2454AD.",
+      "generationID": "exec-39dcfdbf-7f4e-41de-b1ba-763ee39063c5"
+    },
+    {
+      "id": "06-bronze",
+      "name": "Тёплая бронза",
+      "background": "#805334",
+      "file": "06-bronze.png",
+      "prompt": "Use case: precise-object-edit. Edit target: the supplied square iOS icon \"Monolith\", an ivory upright closed book with a vermilion rectangular tab against black. Make a single background-color variant. Change ONLY the original almost-black background and the negative-space cutouts (the spine groove and the narrow opening above the book) to a uniform matte Тёплая бронза #805334. Keep the ivory book and its vermilion tab EXACTLY the same: shape, relative coordinates, width, height, outline, interior geometry, edge softness, ivory fill appearance, tab color, orientation, position, margins and composition. Do not redraw the book into a different design. Preserve the original square crop. The result is the same icon on a different solid color, no border, no rounded outer mask, no frame, no text, no extra mark, no new texture, no extra gradients, no shadows. Fill the entire canvas background with #805334.",
+      "generationID": "exec-4911292a-9bdd-411e-91d9-c6dac7006dda"
+    },
+    {
+      "id": "ui-01-register",
+      "name": "01 / ТОЧНЫЙ РЕЕСТР",
+      "file": "ui-01-register.png",
+      "prompt": "Use case: ui-mockup. Create ONE premium iOS UI concept board for the physical-book library app with the working brand exactly \"BOOK ORDER\". Landscape canvas around 3:2, TWO straight-on full iPhone screens side by side, equal scale, large readable UI, minimal dark device outlines with realistic safe areas. Both screens must be fully visible. No real desk, no perspective, no web dashboard. This is a visual concept, not a shipped screenshot. The app scans ISBN, confirms a book, records its home or loan location, offers cover grid/list, searches and filters authors/genres. Maintain uncompromising organization and clarity.\n\nUse the SAME meaningful sample data on both design-comparison screens. LEFT: main library view; total \"128 книг\", \"7 выдано\"; search \"Название, автор, ISBN\"; filters \"Все\", \"Дом\", \"Дача\", \"Выдано\"; visible compact grid/list toggle; three books, with ORIGINAL geometric typographic cover designs (do not copy publisher cover artwork): \"Місто\" / \"Валер’ян Підмогильний\" / \"Дом · Полка 02\"; \"Лісова пісня\" / \"Леся Українка\" / \"Дача\"; \"The Little Prince\" / \"Antoine de Saint-Exupéry\" / \"Выдано · Олена\". Keep main title large but author text comfortably readable. Bottom primary action \"Сканировать ISBN\" with barcode symbol, separated from a native three-item bottom tab bar \"Книги\", \"Места\", \"Темы\". Clear selected tab; no fourth tab. RIGHT: confirmation after scanning, standard back control \"Назад\", heading \"Книга найдена\"; large original typographic ivory book cover reading \"Fantastic Mr. Fox\" and \"Roald Dahl\" with one small angular fox emblem; below title and author; field \"ISBN 978-014-0328-72-1\"; selector \"Дом / Полка 02\"; secondary action \"Изменить обложку\"; primary action \"Подтвердить\"; unobtrusive action \"Исправить данные\". No bottom tabs on the confirmation modal. Good touch targets, legible labels, short status text, exact baselines. Do not add invented analytics, score gauges, notifications or unsupported features. The two screens illustrate the same design system and same theme. Keep Cyrillic correct; do not crop controls. Design direction: crisp modern Swiss administrative precision, notably lighter and quieter than a propaganda poster. Clean near-white #F5F6F7 canvas, deep ink navy #172B46 headings and buttons, one cobalt #2454AD active accent, neutral gray fine rules. Functional regular sans serif for body, firm medium-bold sans for headings, compact tabular numerals. No condensed shouting headlines. Main heading \"Библиотека\" in title case. Left screen uses tightly aligned spacious LIST rows, tiny book thumbnails, clear status lines and fine horizontal separators, no pill-shaped cards, almost-square 6pt radius controls. Counters integrated into one restrained line. Right screen uses white background and outlined metadata rows, a solid navy primary button. Small book-monolith emblem by the brand. On the board outside phones put exact top label \"01 / ТОЧНЫЙ РЕЕСТР\" and caption \"Ясность. Структура. Порядок.\" Overall feeling professional, confident, systematic, exceptionally usable.",
+      "generationID": "exec-7669e2f8-fa99-437e-b0dc-f4045c2dbe24"
+    },
+    {
+      "id": "ui-02-command",
+      "name": "02 / КОМАНДНЫЙ ЦЕНТР",
+      "file": "ui-02-command.png",
+      "prompt": "Use case: ui-mockup. Create ONE premium iOS UI concept board for the physical-book library app with the working brand exactly \"BOOK ORDER\". Landscape canvas around 3:2, TWO straight-on full iPhone screens side by side, equal scale, large readable UI, minimal dark device outlines with realistic safe areas. Both screens must be fully visible. No real desk, no perspective, no web dashboard. This is a visual concept, not a shipped screenshot. The app scans ISBN, confirms a book, records its home or loan location, offers cover grid/list, searches and filters authors/genres. Maintain uncompromising organization and clarity.\n\nUse the SAME meaningful sample data on both design-comparison screens. LEFT: main library view; total \"128 книг\", \"7 выдано\"; search \"Название, автор, ISBN\"; filters \"Все\", \"Дом\", \"Дача\", \"Выдано\"; visible compact grid/list toggle; three books, with ORIGINAL geometric typographic cover designs (do not copy publisher cover artwork): \"Місто\" / \"Валер’ян Підмогильний\" / \"Дом · Полка 02\"; \"Лісова пісня\" / \"Леся Українка\" / \"Дача\"; \"The Little Prince\" / \"Antoine de Saint-Exupéry\" / \"Выдано · Олена\". Keep main title large but author text comfortably readable. Bottom primary action \"Сканировать ISBN\" with barcode symbol, separated from a native three-item bottom tab bar \"Книги\", \"Места\", \"Темы\". Clear selected tab; no fourth tab. RIGHT: confirmation after scanning, standard back control \"Назад\", heading \"Книга найдена\"; large original typographic ivory book cover reading \"Fantastic Mr. Fox\" and \"Roald Dahl\" with one small angular fox emblem; below title and author; field \"ISBN 978-014-0328-72-1\"; selector \"Дом / Полка 02\"; secondary action \"Изменить обложку\"; primary action \"Подтвердить\"; unobtrusive action \"Исправить данные\". No bottom tabs on the confirmation modal. Good touch targets, legible labels, short status text, exact baselines. Do not add invented analytics, score gauges, notifications or unsupported features. The two screens illustrate the same design system and same theme. Keep Cyrillic correct; do not crop controls. Design direction: refined dark command console for a book collection, credible native iOS, NOT a sci-fi terminal. Entire UI dark graphite #111820, inset surfaces #1D2731, warm ivory #F3EDE3 text, muted copper #B88A5A accents and primary buttons with very dark text. Crisp geometric sans, strong but not overly compressed title \"Библиотека\"; small monospaced inventory identifiers \"001\", \"002\", \"003\". Top two large count blocks with the same total and loans. Left screen LIST: each row is a precise dark horizontal panel with a colored cover thumbnail, book name/author, location, divider; selected filter copper underline; no huge rounded pills, corners 6pt. Right confirmation dark with book cover floating simply without glow; metadata arranged in narrow ruled bands, copper primary confirmation button. No random red warning, no data charts, no neon. Outside phones board background slightly lighter graphite and exact label \"02 / КОМАНДНЫЙ ЦЕНТР\", caption \"Вся библиотека перед глазами.\" Intimidating precision through alignment and restraint, luxe control-room feel.",
+      "generationID": "exec-8b3c1772-f46d-47ee-b36c-9b27f16df680"
+    },
+    {
+      "id": "ui-03-archive",
+      "name": "03 / ЧАСТНЫЙ АРХИВ",
+      "file": "ui-03-archive.png",
+      "prompt": "Use case: ui-mockup. Create ONE premium iOS UI concept board for the physical-book library app with the working brand exactly \"BOOK ORDER\". Landscape canvas around 3:2, TWO straight-on full iPhone screens side by side, equal scale, large readable UI, minimal dark device outlines with realistic safe areas. Both screens must be fully visible. No real desk, no perspective, no web dashboard. This is a visual concept, not a shipped screenshot. The app scans ISBN, confirms a book, records its home or loan location, offers cover grid/list, searches and filters authors/genres. Maintain uncompromising organization and clarity.\n\nUse the SAME meaningful sample data on both design-comparison screens. LEFT: main library view; total \"128 книг\", \"7 выдано\"; search \"Название, автор, ISBN\"; filters \"Все\", \"Дом\", \"Дача\", \"Выдано\"; visible compact grid/list toggle; three books, with ORIGINAL geometric typographic cover designs (do not copy publisher cover artwork): \"Місто\" / \"Валер’ян Підмогильний\" / \"Дом · Полка 02\"; \"Лісова пісня\" / \"Леся Українка\" / \"Дача\"; \"The Little Prince\" / \"Antoine de Saint-Exupéry\" / \"Выдано · Олена\". Keep main title large but author text comfortably readable. Bottom primary action \"Сканировать ISBN\" with barcode symbol, separated from a native three-item bottom tab bar \"Книги\", \"Места\", \"Темы\". Clear selected tab; no fourth tab. RIGHT: confirmation after scanning, standard back control \"Назад\", heading \"Книга найдена\"; large original typographic ivory book cover reading \"Fantastic Mr. Fox\" and \"Roald Dahl\" with one small angular fox emblem; below title and author; field \"ISBN 978-014-0328-72-1\"; selector \"Дом / Полка 02\"; secondary action \"Изменить обложку\"; primary action \"Подтвердить\"; unobtrusive action \"Исправить данные\". No bottom tabs on the confirmation modal. Good touch targets, legible labels, short status text, exact baselines. Do not add invented analytics, score gauges, notifications or unsupported features. The two screens illustrate the same design system and same theme. Keep Cyrillic correct; do not crop controls. Design direction: a prestigious private library's impeccably numbered printed archive, firm and intellectual. Entire UI warm parchment #F1EBDD, deep burgundy #552734 headings and primary buttons, warm black #201C1C body copy, thin hairline dividers, generous margins. Substantial editorial serif title \"Собрание\", simple sans-serif body; small monospaced accession numbers. No medieval scrolls, no leather texture, no fake wax seals, no ornamental crests, no cuddly rounded cards. Main screen uses a disciplined TWO-COLUMN BOOK COVER GRID: show the three required books, leaving the fourth cell empty, with inventory numbers, title and very short location below, authors where space permits. Book illustrations are understated flat typographic rectangles, natural muted cover colors; grid/list toggle top-right has grid active. Small horizontal filter row and search field above grid. Firm burgundy scan button at bottom. Right confirmation is also light parchment with burgundy section labels, ruled ISBN/place fields and solid burgundy confirm button. Outside phones exact label \"03 / ЧАСТНЫЙ АРХИВ\", caption \"У каждой книги — своё место.\" Strong balance between authority, ownership and literary taste, sophisticated editorial design.",
+      "generationID": "exec-266d5c31-fe98-4d61-a90a-ecc43b98e44a"
+    }
+  ]
+}
