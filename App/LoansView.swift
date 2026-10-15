@@ -26,7 +26,7 @@ struct LoansView: View {
                                         }
                                     }
                                 }
-                                Button(L("Отметить возврат"), systemImage: "arrow.uturn.backward") { returning = loan }
+                                Button(L("Отметить возврат"), systemImage: "arrow.uturn.backward") { returning = loan }.disabled(!store.canEdit)
                             }.archiveRow()
                         }
                     }
@@ -69,7 +69,7 @@ struct LoanEditorView: View {
                     ArchiveToolbarItem(placement: .confirmationAction) { Button(L("Сохранить")) {
                         let loan = BookLoan(copyID: copy.id, borrower: borrower.trimmingCharacters(in: .whitespacesAndNewlines), loanedAt: loanedAt, dueAt: hasDue ? Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: dueAt) : nil)
                         if store.update({ $0.loans.append(loan) }) { dismiss() }
-                    }.disabled(borrower.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty) }
+                    }.disabled(!store.canEdit || borrower.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty) }
                 }
         }
     }
@@ -96,7 +96,7 @@ struct ReturnLoanView: View {
                             if let i = state.loans.firstIndex(where: { $0.id == loan.id }) { state.loans[i].returnedAt = .now }
                             if let i = state.copies.firstIndex(where: { $0.id == loan.copyID }) { state.copies[i].locationID = location; state.copies[i].shelf = shelf }
                         }) { dismiss() }
-                    }.disabled(location == nil) }
+                    }.disabled(!store.canEdit || location == nil) }
                 }
         }
     }

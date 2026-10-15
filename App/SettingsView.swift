@@ -68,8 +68,14 @@ struct SettingsView: View {
                         document = LibraryFile(data: Data(LibraryBackup.csv(store.snapshot).utf8)); filename = "Bookreign-library"; contentType = .commaSeparatedText; exporting = true
                     }
                     Button(L("Восстановить из копии"), systemImage: "arrow.clockwise.icloud") { importing = true }
-                } header: { Text(L("Ваши данные")) } footer: { Text(L("Библиотека хранится на этом устройстве. JSON-копия содержит книги, фотографии, места и историю выдачи. CSV подходит для таблиц; восстановление из CSV пока не поддерживается.")) }
+                        .disabled(store.familyState != nil)
+                } header: { Text(L("Ваши данные")) } footer: { Text(L("JSON-копия содержит книги, фотографии, места и историю выдачи. CSV подходит для таблиц. Восстановление доступно только для локальной библиотеки; семейную библиотеку можно экспортировать.")) }
                     .archiveRow()
+                Section {
+                    NavigationLink { FamilySettingsView(family: store.family) } label: {
+                        Label(L("Семейный доступ"), systemImage: "person.2.fill")
+                    }.accessibilityIdentifier("familySettingsLink")
+                }.archiveRow()
                 Section {
                     LabeledContent(L("Издания"), value: "\(store.snapshot.editions.count)")
                     LabeledContent(L("Экземпляры"), value: "\(store.snapshot.copies.count)")
@@ -90,7 +96,7 @@ struct SettingsView: View {
                         let url = try result.get()
                         let access = url.startAccessingSecurityScopedResource()
                         defer { if access { url.stopAccessingSecurityScopedResource() } }
-                        let data = try Data(contentsOf: url)
+                        let data = try FamilyAssetCodec.read(url, maximumBytes: LibraryResourceLimits.maximumBackupBytes)
                         let state = try LibraryBackup.decode(data)
                         pendingImport = data
                         importedEditionCount = state.editions.count

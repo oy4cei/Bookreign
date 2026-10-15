@@ -31,6 +31,7 @@ struct BookDetailView: View {
                             Button(edition.coverData == nil && edition.coverURL.isEmpty ? L("Добавить обложку") : L("Изменить обложку"), systemImage: "photo.badge.plus") { choosingCover = true }
                                 .buttonStyle(ArchiveSecondaryButtonStyle())
                                 .accessibilityIdentifier("coverEditorButton")
+                                .disabled(!store.canEdit)
                             VStack(spacing: 7) {
                                 Text(displayBookTitle(edition)).font(.system(.title2, design: .serif, weight: .semibold)).multilineTextAlignment(.center)
                                 if !edition.author.isEmpty { Text(edition.author).foregroundStyle(Color.archiveSecondary).multilineTextAlignment(.center) }
@@ -42,6 +43,7 @@ struct BookDetailView: View {
                         Section {
                             Button(L("Найти данные по ISBN"), systemImage: "sparkle.magnifyingglass") { findingMetadata = true }
                                 .accessibilityIdentifier("findBookMetadata")
+                                .disabled(!store.canEdit)
                         } footer: { Text(L("Можно заполнить название, автора и обложку, сохранив экземпляры, места и историю выдачи.")) }
                             .archiveRow()
                     }
@@ -52,7 +54,7 @@ struct BookDetailView: View {
                                     Label(L("У \(loan.borrower)"), systemImage: "person.crop.circle").font(.system(.headline, design: .serif)).foregroundStyle(Color.forest)
                                     Text(L("Место хранения: \(store.locationName(copy.locationID))\(copy.shelf.isEmpty ? "" : " · " + copy.shelf)")).font(.caption).foregroundStyle(Color.archiveSecondary)
                                     if let due = loan.dueAt { Text(L("Вернуть до \(L10n.date(due))")).font(.caption).foregroundStyle(due < .now ? Color.red : Color.archiveSecondary) }
-                                    Button(L("Книгу вернули"), systemImage: "arrow.uturn.backward") { returnLoan = loan }.buttonStyle(ArchiveSecondaryButtonStyle())
+                                    Button(L("Книгу вернули"), systemImage: "arrow.uturn.backward") { returnLoan = loan }.buttonStyle(ArchiveSecondaryButtonStyle()).disabled(!store.canEdit)
                                 } else {
                                     Label(store.locationName(copy.locationID), systemImage: "mappin.and.ellipse").font(.system(.headline, design: .serif))
                                     if !copy.shelf.isEmpty { Text(copy.shelf).font(.subheadline).foregroundStyle(Color.archiveSecondary) }
@@ -60,12 +62,12 @@ struct BookDetailView: View {
                                         Button(L("Дать почитать"), systemImage: "person.badge.plus") { loanCopy = copy }
                                         Spacer()
                                         Button { moveCopy = copy } label: { Image(systemName: "tray.and.arrow.down") }.accessibilityLabel(L("Переместить экземпляр"))
-                                    }.buttonStyle(ArchiveSecondaryButtonStyle())
+                                    }.buttonStyle(ArchiveSecondaryButtonStyle()).disabled(!store.canEdit)
                                 }
                             }.padding(.vertical, 5)
-                                .swipeActions(edge: .trailing) { Button(L("Удалить"), role: .destructive) { copyToDelete = copy } }
+                                .swipeActions(edge: .trailing) { if store.canEdit { Button(L("Удалить"), role: .destructive) { copyToDelete = copy } } }
                         }
-                        Button(L("Добавить ещё экземпляр"), systemImage: "plus") { addingCopy = true }
+                        Button(L("Добавить ещё экземпляр"), systemImage: "plus") { addingCopy = true }.disabled(!store.canEdit)
                     }.archiveRow()
                     if !edition.isbn.isEmpty || !edition.publisher.isEmpty || !edition.year.isEmpty {
                         Section(L("Об издании")) {
@@ -102,7 +104,7 @@ struct BookDetailView: View {
                                     Button(L("Найти данные по ISBN"), systemImage: "magnifyingglass") { findingMetadata = true }
                                 }
                                 Button(L("Удалить из библиотеки"), systemImage: "trash", role: .destructive) { deleting = true }
-                            } label: { Image(systemName: "ellipsis.circle") }
+                            } label: { Image(systemName: "ellipsis.circle") }.disabled(!store.canEdit)
                         }
                     }
                     .sheet(isPresented: $editing) { EditEditionView(edition: edition) }
@@ -157,7 +159,12 @@ struct EditEditionView: View {
     @EnvironmentObject private var store: LibraryStore
     @Environment(\.dismiss) private var dismiss
     @State var edition: BookEdition
+    @State private var original: BookEdition
     @State private var photoLoading = false
+    init(edition: BookEdition) {
+        _original = State(initialValue: edition)
+        _edition = State(initialValue: edition)
+    }
     var body: some View {
         NavigationStack {
             Form {
@@ -167,8 +174,8 @@ struct EditEditionView: View {
                 .toolbar {
                     ArchiveToolbarItem(placement: .cancellationAction) { Button(L("Отмена")) { dismiss() } }
                     ArchiveToolbarItem(placement: .confirmationAction) { Button(L("Сохранить")) {
-                        if store.update({ state in if let i = state.editions.firstIndex(where: { $0.id == edition.id }) { state.editions[i] = edition } }) { dismiss() }
-                    }.disabled(photoLoading || edition.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty) }
+                        if store.update({ state in if let i = state.editions.firstIndex(where: { $0.id == edition.id }) { state.editions[i] = state.editions[i].applyingEdits(edition, from: original) } }) { dismiss() }
+                    }.disabled(!store.canEdit || photoLoading || edition.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty) }
                 }
         }
     }
@@ -189,7 +196,7 @@ struct AddCopyView: View {
                 .onAppear { location = store.snapshot.locations.first?.id }
                 .toolbar {
                     ArchiveToolbarItem(placement: .cancellationAction) { Button(L("Отмена")) { dismiss() } }
-                    ArchiveToolbarItem(placement: .confirmationAction) { Button(L("Добавить")) { if let location, store.add(edition, location: location, shelf: shelf, existingID: edition.id) { dismiss() } }.disabled(location == nil) }
+                    ArchiveToolbarItem(placement: .confirmationAction) { Button(L("Добавить")) { if let location, store.add(edition, location: location, shelf: shelf, existingID: edition.id) { dismiss() } }.disabled(!store.canEdit || location == nil) }
                 }
         }
     }
@@ -229,7 +236,7 @@ struct MoveCopiesView: View {
                     ArchiveToolbarItem(placement: .confirmationAction) { Button(L("Готово")) {
                         guard let location else { return }
                         if store.update({ state in for i in state.copies.indices where copyIDs.contains(state.copies[i].id) { state.copies[i].locationID = location; state.copies[i].shelf = shelf } }) { onDone(); dismiss() }
-                    }.disabled(location == nil) }
+                    }.disabled(!store.canEdit || location == nil) }
                 }
         }
     }

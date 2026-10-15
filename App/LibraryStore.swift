@@ -9,13 +9,20 @@ final class LibraryStore: ObservableObject {
     @Published var errorMessage: LocalizedMessage?
     @Published private(set) var isReady = false
     @Published private(set) var canUndo = false
+    @Published private(set) var familyState: FamilySyncState?
+    @Published var familyAccountReady = false
+    @Published var familyTransitionInProgress = false
+    lazy var family = FamilySharingCoordinator(store: self)
+    var isShared: Bool { familyState != nil && familyState?.isCreating == false }
+    var canEdit: Bool { isReady && !familyTransitionInProgress && (familyState == nil || (familyState?.canEdit == true && familyAccountReady)) }
     private var database: LibraryDatabase?
     private var previous: LibrarySnapshot?
 
     init() {
         do {
             let folder = try FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("Polka", isDirectory: true)
-            try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
+            try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true,
+                                                   attributes: [.protectionKey: FileProtectionType.completeUntilFirstUserAuthentication])
             let isDemo = ProcessInfo.processInfo.arguments.contains("--demo")
             var databaseName = isDemo ? "demo.sqlite" : "library.sqlite"
             #if DEBUG
@@ -24,12 +31,13 @@ final class LibraryStore: ObservableObject {
                 if ProcessInfo.processInfo.arguments.contains("--reset-library") {
                     let testURL = folder.appendingPathComponent(databaseName)
                     if FileManager.default.fileExists(atPath: testURL.path) { try FileManager.default.removeItem(at: testURL) }
-                    UserDefaults.standard.removeObject(forKey: "pendingISBNs")
+                    ScanQueueStore.clear()
                 }
             }
             #endif
             database = try LibraryDatabase(url: folder.appendingPathComponent(databaseName))
             snapshot = try database!.load()
+            familyState = try database!.loadFamilyState()
             isReady = true
             #if DEBUG
             if ProcessInfo.processInfo.arguments.contains("--ui-testing"),
@@ -47,20 +55,28 @@ final class LibraryStore: ObservableObject {
     @discardableResult
     func update(_ change: (inout LibrarySnapshot) -> Void) -> Bool {
         guard isReady, let database else { errorMessage = "Библиотека недоступна для записи. Перезапустите приложение."; return false }
+        guard canEdit else { errorMessage = "Общая библиотека доступна только для чтения. Проверьте iCloud и права доступа."; return false }
         var next = snapshot
         change(&next)
         do {
             try next.validate()
-            try database.save(next)
+            var state = familyState
+            if state != nil {
+                try state!.edit(next)
+                next = try state!.envelope.snapshot()
+            }
+            try database.save(next, familyState: state)
             previous = snapshot
             snapshot = next
-            canUndo = true
+            familyState = state
+            canUndo = state == nil
+            if state != nil { family.scheduleSync() }
             return true
         } catch { errorMessage = "Изменение не сохранено. \(L10n.error(error))"; return false }
     }
 
     func undo() {
-        guard let previous, let database else { return }
+        guard canEdit, familyState == nil, let previous, let database else { return }
         do {
             try database.save(previous)
             snapshot = previous
@@ -110,10 +126,54 @@ final class LibraryStore: ObservableObject {
         return snapshot.editions.first { $0.id == item.editionID }
     }
     func restore(_ data: Data) throws -> Bool {
+        guard familyState == nil else { throw FamilyError.readOnly }
         let imported = try LibraryBackup.decode(data)
         return update { $0 = imported }
     }
     var activeLoans: [BookLoan] { snapshot.loans.filter { $0.returnedAt == nil }.sorted { ($0.dueAt ?? .distantFuture) < ($1.dueAt ?? .distantFuture) } }
+
+    func commitFamily(_ state: FamilySyncState) throws {
+        guard isReady, let database else { throw FamilyError.unavailable }
+        let next = try state.envelope.snapshot()
+        try database.save(next, familyState: state)
+        snapshot = next
+        familyState = state
+        previous = nil; canUndo = false
+    }
+
+    func prepareFamilyJoin(_ destination: FamilySyncState) throws -> FamilyEnvelope {
+        guard isReady, familyState == nil, let database else { throw FamilyError.unavailable }
+        var pending: PendingFamilyJoin
+        if let saved = try database.loadPendingFamilyJoin(), saved.matches(destination) {
+            pending = saved
+            try pending.updateLocal(snapshot)
+        } else { pending = try PendingFamilyJoin(snapshot: snapshot, destination: destination) }
+        try database.savePendingFamilyJoin(pending)
+        return pending.imported
+    }
+
+    func keepOwnerLibraryLocally(finalEnvelope: FamilyEnvelope? = nil) throws {
+        guard let state = familyState, state.isOwner, let database else { throw FamilyError.readOnly }
+        let next: LibrarySnapshot
+        if let finalEnvelope { next = try state.snapshotAfterStoppingSharing(finalEnvelope: finalEnvelope) }
+        else {
+            guard state.isCreating else { throw FamilyError.unavailable }
+            next = snapshot
+        }
+        try database.save(next, familyState: nil)
+        snapshot = next
+        familyState = nil
+        familyAccountReady = false
+        previous = nil; canUndo = false
+    }
+
+    func discardRevokedFamilyCopy() throws {
+        guard familyState?.role == .revoked, let database else { throw FamilyError.readOnly }
+        let empty = LibrarySnapshot.empty
+        try database.save(empty, familyState: nil)
+        snapshot = empty; familyState = nil; familyAccountReady = false
+        previous = nil; canUndo = false
+    }
 
     private func loadDemo() {
         var demo = LibrarySnapshot.empty

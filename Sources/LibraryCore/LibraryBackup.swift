@@ -14,9 +14,11 @@ public enum LibraryBackup {
     }
 
     public static func decode(_ data: Data) throws -> LibrarySnapshot {
+        guard data.count <= LibraryResourceLimits.maximumBackupBytes else { throw FamilyError.tooLarge }
         let envelope = try JSONDecoder().decode(Envelope.self, from: data)
         guard envelope.version == 1 else { throw LibraryDataError.unsupportedVersion(envelope.version) }
         try envelope.snapshot.validate()
+        try LibraryResourceLimits.validate(envelope.snapshot)
         return envelope.snapshot
     }
 

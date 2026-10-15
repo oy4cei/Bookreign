@@ -3,7 +3,7 @@
 set -euo pipefail
 project_root="$(cd "$(dirname "$0")/.." && pwd)"
 release_root="${1:-$project_root/Release}"
-archive_path="$release_root/Bookreign-1.0.0-12.xcarchive"
+archive_path="$release_root/Bookreign-1.1.0-13.xcarchive"
 mkdir -p "$release_root"
 cd "$project_root"
 if [[ -e "$archive_path" ]]; then

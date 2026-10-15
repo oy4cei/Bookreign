@@ -35,20 +35,20 @@ struct LocationsView: View {
                             }
                         }.padding(.vertical, 5)
                     }.archiveRow().swipeActions {
-                        Button(L("Удалить"), role: .destructive) { deleting = location }
-                        Button(L("Изменить")) { editing = location }.tint(.archiveControlFill)
+                        Button(L("Удалить"), role: .destructive) { deleting = location }.disabled(!store.canEdit)
+                        Button(L("Изменить")) { editing = location }.disabled(!store.canEdit).tint(.archiveControlFill)
                     }.contextMenu {
-                        Button(L("Изменить"), systemImage: "pencil") { editing = location }
-                        Button(L("Удалить"), systemImage: "trash", role: .destructive) { deleting = location }
+                        Button(L("Изменить"), systemImage: "pencil") { editing = location }.disabled(!store.canEdit)
+                        Button(L("Удалить"), systemImage: "trash", role: .destructive) { deleting = location }.disabled(!store.canEdit)
                     }
                 }
-                Section { Button(L("Добавить место"), systemImage: "plus") { adding = true } }.archiveRow()
+                Section { Button(L("Добавить место"), systemImage: "plus") { adding = true }.disabled(!store.canEdit) }.archiveRow()
             }
                 .safeAreaInset(edge: .top, spacing: 0) {
                     ArchivePageHeader(title: L("Места хранения"))
                 }
                 .archiveScreen().navigationTitle(L("Места хранения"))
-                .toolbar { ArchiveToolbarItem(placement: .topBarTrailing) { Button { adding = true } label: { Image(systemName: "plus") }.accessibilityLabel(L("Добавить место")) } }
+                .toolbar { ArchiveToolbarItem(placement: .topBarTrailing) { Button { adding = true } label: { Image(systemName: "plus") }.accessibilityLabel(L("Добавить место")).disabled(!store.canEdit) } }
                 .sheet(isPresented: $adding) { LocationEditorView() }
                 .sheet(item: $editing) { LocationEditorView(existing: $0) }
                 .alert(L("Удалить место?"), isPresented: Binding(get: { deleting != nil }, set: { if !$0 { deleting = nil } })) {
@@ -88,7 +88,7 @@ struct LocationDetailView: View {
                 }
             }
         }.archiveScreen().navigationTitle(store.locationName(locationID))
-            .toolbar { Button { add = true } label: { Image(systemName: "plus") }.accessibilityLabel(L("Добавить книгу сюда")) }
+            .toolbar { Button { add = true } label: { Image(systemName: "plus") }.accessibilityLabel(L("Добавить книгу сюда")).disabled(!store.canEdit) }
             .sheet(isPresented: $add) { AddBookView(initialLocation: locationID) }
     }
 }
@@ -127,8 +127,11 @@ struct LocationEditorView: View {
                     ArchiveToolbarItem(placement: .cancellationAction) { Button(L("Отмена")) { dismiss() } }
                     ArchiveToolbarItem(placement: .confirmationAction) { Button(L("Сохранить")) {
                         let item = StorageLocation(id: existing?.id ?? UUID(), name: existing.map { name == store.locationName($0.id) ? $0.name : name.trimmingCharacters(in: .whitespacesAndNewlines) } ?? name.trimmingCharacters(in: .whitespacesAndNewlines), symbol: symbol)
-                        if store.update({ state in if let i = state.locations.firstIndex(where: { $0.id == item.id }) { state.locations[i] = item } else { state.locations.append(item) } }) { dismiss() }
-                    }.disabled(name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty) }
+                        if store.update({ state in if let i = state.locations.firstIndex(where: { $0.id == item.id }), let existing {
+                            if item.name != existing.name { state.locations[i].name = item.name }
+                            if item.symbol != existing.symbol { state.locations[i].symbol = item.symbol }
+                        } else if existing == nil { state.locations.append(item) } }) { dismiss() }
+                    }.disabled(!store.canEdit || name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty) }
                 }
         }
     }

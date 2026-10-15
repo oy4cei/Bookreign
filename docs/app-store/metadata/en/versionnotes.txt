@@ -1,3 +1,1 @@
-First release of Bookreign.
-
-Catalog your paper books, find them by location, author or genre, and keep track of copies on loan. Add books manually, by ISBN or barcode, or with text recognized from a cover photo. Save JSON backups, export CSV, and use the interface in Ukrainian, Russian or English.
+Family sharing through iCloud: invite people you choose and share your entire library without a separate Bookreign account. Automatic synchronization, viewing or editing permissions, and protection for unsent changes. A new app icon and safer backup and cover handling.

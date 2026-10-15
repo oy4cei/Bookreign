@@ -1,0 +1,36 @@
+{
+  "version": "1.1.0",
+  "build": "13",
+  "bundle": "com.bookslibrary.polka",
+  "device_families": [
+    1,
+    2
+  ],
+  "ipa_sha256": "fd0760d696417d5a181b4066e5fe1a3053ca290e82b76bb6bb0e17bcee93d034",
+  "source_icon_sha256": "5584f4dca613dc3dcb7c0786d04880eba9b7d1e25222197517072c7e28d3b63a",
+  "cloud_environment": "Production",
+  "push_environment": "production",
+  "cloud_container": [
+    "iCloud.com.bookslibrary.polka"
+  ],
+  "archive_checks": "36/36",
+  "upload_status": "delivered and processed",
+  "two_account_device_test": "not performed",
+  "app_store_id": "6819029934",
+  "app_store_build_id": "c194e7f3-aeb8-4a2e-9ece-ddeff4898930",
+  "delivered_at": "2026-10-14T22:55:00+03:00",
+  "testflight_status": "Ready to Submit",
+  "cloud_schema": "deployed to Production; FamilyLibrarySnapshot formatVersion INT64 and payload ASSET; no public role grants",
+  "website_commit": "f434bca5db3fcf6fd3599b6f1ddefd9ef126d1f6",
+  "app_review_submitted": false,
+  "public_release": false,
+  "app_store_version_status": "Ready for Review (draft, not submitted)",
+  "selected_build": "13",
+  "metadata_locales": [
+    "uk",
+    "en-US",
+    "ru"
+  ],
+  "required_metadata_validation": "passed",
+  "testflight_groups": 0
+}

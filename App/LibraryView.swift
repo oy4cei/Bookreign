@@ -87,7 +87,7 @@ struct LibraryView: View {
                         }
                         .buttonStyle(ArchivePrimaryButtonStyle())
                         .accessibilityIdentifier("addBookButton")
-                        .disabled(!store.isReady)
+                        .disabled(!store.canEdit)
                     }
                 }.padding(.horizontal, 22).padding(.vertical, 12)
                     .background(Color.paper)
@@ -102,7 +102,7 @@ struct LibraryView: View {
     }
     private var header: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text(L("Моя библиотека"))
+            Text(store.isShared ? L("Общая библиотека") : L("Моя библиотека"))
                 .font(.system(.largeTitle, design: .serif, weight: .medium))
                 .fixedSize(horizontal: false, vertical: true)
             librarySummary

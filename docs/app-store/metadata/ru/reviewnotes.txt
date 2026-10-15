@@ -1,13 +1,15 @@
-Bookreign 1.0.0 — каталог бумажных книг для iPhone и iPad (iOS/iPadOS 17+). Внутри приложения не нужны вход, подписка или покупки. Первый запуск открывает пустую личную библиотеку.
+Bookreign 1.1.0 (13) catalogs physical books on iPhone and iPad, iOS 17+. Local use requires no sign-in, subscription or in-app purchase. First launch opens an empty library.
 
-Проверка:
-1. В «Книгах» нажмите «Добавить книгу». Откроется сканер; камера требует реального устройства и разрешения. В «Других способах» есть ручной ввод, поиск и фото обложки.
-2. Без сети добавьте вручную вымышленную книгу: «Проверка», автор «Тестовый автор». Выберите место и подтвердите.
-3. Откройте книгу, измените сведения и выберите свою фотографию обложки. Подтвердите сохранение.
-4. Создайте место в «Местах», переместите экземпляр, выдайте тестовому получателю. Откройте «Места → Выдано» и отметьте возврат.
-5. Проверьте фильтры автора и жанра в «Темах». В настройках смените язык или тему и откройте политику конфиденциальности.
-6. Сохраните JSON-копию через «Файлы», добавьте ещё книгу, восстановите копию и подтвердите замену. CSV поддерживает только экспорт; очередь ISBN в копию не входит.
+Local review path:
+1. Tap Add book to open the scanner (real device and camera permission required). Other ways offers manual entry, catalog search and cover text recognition.
+2. Manually add a fictional book and choose a storage location. Edit its details or select a cover photo. Move or lend the copy, then mark its return under Places > On loan.
+3. Filter by author or genre in Topics. In Settings change language/theme, view the privacy policy or export JSON/CSV. Full restore and Undo are available only in local mode.
 
-Open Library получает ISBN или запрос. Поиск ISBN может обращаться к api.mbooks.com.ua. Обложки загружаются со сторонних серверов. Поиск картинок открывает Google, импорт HTTPS-изображения обращается к выбранному сайту. Если каталог недоступен или издание не найдено, доступен ручной ввод. OCR работает на устройстве через Apple Vision; фотография не загружается на сервер.
+Family sharing review:
+1. Sign into iCloud in iOS Settings on two devices with different Apple accounts. No Bookreign credentials or developer test account are needed.
+2. In Bookreign > Settings > Family sharing, enable access and confirm the explanation that all books, notes, locations, cover photos and borrower names will be shared. Select people using Apple's sharing sheet; public access is disabled.
+3. Open the invitation on the second device. A writer can merge their entire library; a reader must save their previous library to Files before replacing it. Cancellation preserves the previous library.
+4. Add or edit a sample book. Use Refresh now on the other device. Offline changes are retained; after restarting, editing waits for verification of the original iCloud account. Read/export remain available.
+5. Manage permissions or stop sharing using Apple's sheet. Revoked participants retain a read-only, exportable copy and may delete it locally. The owner retains their library.
 
-Нет уведомлений о возврате, семейной синхронизации или чтения электронных книг. Имена получателей вводятся вручную, доступа к контактам нет. Используйте обычный интерфейс релизной сборки: тестовая учётная запись, аргументы запуска и демонстрационные данные не требуются.
+The owner supplies iCloud storage quota. Sync sends a compressed library snapshot with per-field last-edit timestamps. No developer server, ads or usage analytics. Catalog lookup sends ISBN/title queries to Open Library and may use an additional Ukrainian catalog. Cover requests go to image hosts; Google image search opens in the browser. OCR uses Apple Vision on device. There are no loan reminder notifications or ebook reading. Contacts are not read. Ordinary release UI is sufficient; no launch arguments or fixtures are required.

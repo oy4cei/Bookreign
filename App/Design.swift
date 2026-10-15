@@ -147,10 +147,10 @@ struct BookCover: View {
         GeometryReader { proxy in
             ZStack {
                 placeholder(width: proxy.size.width)
-                if let data = edition.coverData, let uiImage = UIImage(data: data) {
-                    Image(uiImage: uiImage).resizable().scaledToFill()
+                if let data = edition.coverData, let thumbnail = LibraryImageSafety.thumbnail(data, maximumDimension: large ? 1_000 : 500) {
+                    Image(uiImage: UIImage(cgImage: thumbnail)).resizable().scaledToFill()
                 } else if let url = URL(string: edition.coverURL), url.scheme == "https" {
-                    AsyncImage(url: url) { image in image.resizable().scaledToFill() } placeholder: { Color.clear }
+                    SafeRemoteCover(url: url, fit: false)
                 }
             }
             .frame(width: proxy.size.width, height: proxy.size.height).clipped()

@@ -234,9 +234,9 @@ private struct CoverCandidateThumbnail: View {
             } else if CoverTestFixture.enabled {
                 Image(systemName: "photo").foregroundStyle(.secondary)
             } else {
-                AsyncImage(url: CoverSearch.imageURL(book.coverURL)) { image in
-                    image.resizable().scaledToFit()
-                } placeholder: { Image(systemName: "photo").foregroundStyle(.secondary) }
+                if let url = CoverSearch.imageURL(book.coverURL) {
+                    SafeRemoteCover(url: url, fit: true)
+                } else { Image(systemName: "photo").foregroundStyle(.secondary) }
             }
         }.accessibilityHidden(true)
     }
@@ -382,8 +382,9 @@ private final class CoverSelectionModel {
     }
 }
 
-private enum CoverImageLoader {
+enum CoverImageLoader {
     static func load(_ url: URL) async throws -> Data {
+        guard CoverSearch.imageURL(url.absoluteString) != nil else { throw CoverImageError.notImage }
         if await CoverTestFixture.enabled {
             guard let data = await CoverTestFixture.image(for: url.absoluteString) else { throw CoverImageError.unavailable }
             return data

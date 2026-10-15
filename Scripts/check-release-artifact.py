@@ -16,12 +16,14 @@ bundle = plistlib.loads((app / "Info.plist").read_bytes())
 privacy = plistlib.loads((app / "PrivacyInfo.xcprivacy").read_bytes())
 checks = {
     "bundle_identifier": bundle.get("CFBundleIdentifier") == "com.bookslibrary.polka",
-    "version": bundle.get("CFBundleShortVersionString") == "1.0.0",
-    "build": bundle.get("CFBundleVersion") == "12",
+    "version": bundle.get("CFBundleShortVersionString") == "1.1.0",
+    "build": bundle.get("CFBundleVersion") == "13",
     "display_name": bundle.get("CFBundleDisplayName") == "Bookreign",
     "iphone_and_ipad": set(bundle.get("UIDeviceFamily", [])) == {1, 2},
     "system_encryption_declaration": bundle.get("ITSAppUsesNonExemptEncryption") is False,
     "camera_purpose": bool(bundle.get("NSCameraUsageDescription")),
+    "cloud_sharing": bundle.get("CKSharingSupported") is True,
+    "cloud_background_updates": "remote-notification" in bundle.get("UIBackgroundModes", []),
     "no_tracking": privacy.get("NSPrivacyTracking") is False,
     "user_defaults_reason": any(
         item.get("NSPrivacyAccessedAPIType") == "NSPrivacyAccessedAPICategoryUserDefaults"
@@ -32,7 +34,7 @@ checks = {
     "dSYM": (archive / "dSYMs" / "Polka.app.dSYM").is_dir(),
     "no_ui_test_bundle": not any(app.rglob("*.xctest")),
 }
-for name in ("Library", "Catalog", "Settings", "Errors", "Topics", "Covers", "ScanFlow", "Privacy"):
+for name in ("Library", "Catalog", "Settings", "Errors", "Topics", "Covers", "ScanFlow", "Privacy", "Family"):
     matches = list(app.rglob(name + ".json"))
     checks["localization_" + name] = len(matches) == 1
     if len(matches) == 1:
@@ -40,6 +42,14 @@ for name in ("Library", "Catalog", "Settings", "Errors", "Topics", "Covers", "Sc
         checks["translations_" + name] = all(all(entry.get(locale) for locale in ("uk", "en", "ru")) for entry in values.values())
 signature = subprocess.run(["codesign", "--verify", "--deep", "--strict", str(app)], capture_output=True, text=True)
 checks["code_signature"] = signature.returncode == 0
+entitlement_result = subprocess.run(["codesign", "-d", "--entitlements", ":-", str(app)], capture_output=True)
+try:
+    entitlements = plistlib.loads(entitlement_result.stdout)
+except Exception:
+    entitlements = {}
+checks["cloud_container"] = entitlements.get("com.apple.developer.icloud-container-identifiers") == ["iCloud.com.bookslibrary.polka"]
+checks["cloud_service"] = "CloudKit" in entitlements.get("com.apple.developer.icloud-services", [])
+checks["push_entitlement"] = entitlements.get("aps-environment") in ("development", "production")
 for name, valid in checks.items():
     print(f"{'PASS' if valid else 'FAIL'} {name}")
 print(f"{sum(checks.values())}/{len(checks)} local artifact checks passed.")

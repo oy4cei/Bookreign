@@ -477,15 +477,21 @@ struct AddBookView: View {
 
 @MainActor
 func compactPhoto(_ data: Data) -> Data? {
-    guard let source = CGImageSourceCreateWithData(data as CFData, nil),
-          let image = CGImageSourceCreateThumbnailAtIndex(source, 0, [kCGImageSourceCreateThumbnailFromImageAlways: true, kCGImageSourceThumbnailMaxPixelSize: 1600, kCGImageSourceCreateThumbnailWithTransform: true] as CFDictionary) else { return nil }
+    guard let image = LibraryImageSafety.thumbnail(data) else { return nil }
     return UIImage(cgImage: image).jpegData(compressionQuality: 0.8)
 }
 
 enum ScanQueueStore {
-    static var codes: [String] { UserDefaults.standard.stringArray(forKey: "pendingISBNs") ?? [] }
-    static func append(_ code: String) { var values = codes; if !values.contains(code) { values.append(code); UserDefaults.standard.set(values, forKey: "pendingISBNs") } }
-    static func remove(_ code: String) { UserDefaults.standard.set(codes.filter { $0 != code }, forKey: "pendingISBNs") }
+    private static var defaults: UserDefaults {
+        #if DEBUG
+        if ProcessInfo.processInfo.arguments.contains("--ui-testing") { return UserDefaults(suiteName: "Polka.UITesting.Preferences")! }
+        #endif
+        return .standard
+    }
+    static var codes: [String] { defaults.stringArray(forKey: "pendingISBNs") ?? [] }
+    static func append(_ code: String) { var values = codes; if !values.contains(code) { values.append(code); defaults.set(values, forKey: "pendingISBNs") } }
+    static func remove(_ code: String) { defaults.set(codes.filter { $0 != code }, forKey: "pendingISBNs") }
+    static func clear() { defaults.removeObject(forKey: "pendingISBNs") }
 }
 
 /// An ISBN leaves the scan queue only when that exact edition was saved.

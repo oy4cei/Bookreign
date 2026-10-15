@@ -2,6 +2,7 @@ import SwiftUI
 
 @main
 struct PolkaApp: App {
+    @UIApplicationDelegateAdaptor(FamilyAppDelegate.self) private var appDelegate
     @StateObject private var store = LibraryStore()
     @State private var preferences = AppPreferences.shared
     init() {
@@ -25,6 +26,8 @@ struct PolkaApp: App {
     var body: some Scene {
         WindowGroup {
             RootView().environmentObject(store).tint(.forest)
+                .modifier(FamilyPresentation(family: store.family))
+                .environmentObject(store)
                 .foregroundStyle(Color.archiveText)
                 .environment(\.locale, preferences.locale)
                 .background {

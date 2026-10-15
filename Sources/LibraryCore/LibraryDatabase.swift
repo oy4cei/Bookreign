@@ -46,7 +46,31 @@ public final class LibraryDatabase {
     }
 
     public func save(_ snapshot: LibrarySnapshot) throws {
+        try save(snapshot, familyState: nil)
+    }
+
+    public func loadFamilyState() throws -> FamilySyncState? {
+        lock.lock()
+        defer { lock.unlock() }
+        var statement: OpaquePointer?
+        guard sqlite3_prepare_v2(connection, "SELECT payload FROM family_state WHERE id = 1", -1, &statement, nil) == SQLITE_OK else { throw sqliteError() }
+        defer { sqlite3_finalize(statement) }
+        let step = sqlite3_step(statement)
+        if step == SQLITE_DONE { return nil }
+        guard step == SQLITE_ROW, let bytes = sqlite3_column_blob(statement, 0) else { throw sqliteError() }
+        let state = try JSONDecoder().decode(FamilySyncState.self, from: Data(bytes: bytes, count: Int(sqlite3_column_bytes(statement, 0))))
+        try state.validate()
+        guard try readSnapshot() == state.envelope.snapshot() else { throw FamilyError.invalidData }
+        return state
+    }
+
+    public func save(_ snapshot: LibrarySnapshot, familyState: FamilySyncState?) throws {
         try snapshot.validate()
+        if let familyState {
+            try familyState.validate()
+            guard try familyState.envelope.snapshot() == snapshot else { throw FamilyError.invalidData }
+        }
+        let familyData = try familyState.map { try JSONEncoder().encode($0) }
         let data = try JSONEncoder().encode(snapshot)
         guard let json = String(data: data, encoding: .utf8) else {
             throw LibraryDataError.invalid("Не удалось закодировать данные библиотеки")
@@ -56,11 +80,49 @@ public final class LibraryDatabase {
         try execute("BEGIN IMMEDIATE TRANSACTION")
         do {
             try writeJSON(json)
+            try execute("DELETE FROM family_state WHERE id = 1")
+            if let familyData {
+                try execute("DELETE FROM pending_family_join WHERE id = 1")
+                var statement: OpaquePointer?
+                guard sqlite3_prepare_v2(connection, "INSERT INTO family_state (id, payload) VALUES (1, ?)", -1, &statement, nil) == SQLITE_OK else { throw sqliteError() }
+                defer { sqlite3_finalize(statement) }
+                let transient = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
+                let result = familyData.withUnsafeBytes { sqlite3_bind_blob(statement, 1, $0.baseAddress, Int32($0.count), transient) }
+                guard result == SQLITE_OK, sqlite3_step(statement) == SQLITE_DONE else { throw sqliteError() }
+            }
             try execute("COMMIT")
         } catch {
             try? execute("ROLLBACK")
             throw error
         }
+    }
+
+    public func loadPendingFamilyJoin() throws -> PendingFamilyJoin? {
+        lock.lock()
+        defer { lock.unlock() }
+        var statement: OpaquePointer?
+        guard sqlite3_prepare_v2(connection, "SELECT payload FROM pending_family_join WHERE id = 1", -1, &statement, nil) == SQLITE_OK else { throw sqliteError() }
+        defer { sqlite3_finalize(statement) }
+        let result = sqlite3_step(statement)
+        if result == SQLITE_DONE { return nil }
+        guard result == SQLITE_ROW, let bytes = sqlite3_column_blob(statement, 0) else { throw sqliteError() }
+        let pending = try JSONDecoder().decode(PendingFamilyJoin.self, from: Data(bytes: bytes, count: Int(sqlite3_column_bytes(statement, 0))))
+        try pending.validate()
+        return pending
+    }
+
+    public func savePendingFamilyJoin(_ pending: PendingFamilyJoin) throws {
+        try pending.validate()
+        let data = try JSONEncoder().encode(pending)
+        guard data.count <= Int32.max else { throw FamilyError.tooLarge }
+        lock.lock()
+        defer { lock.unlock() }
+        var statement: OpaquePointer?
+        guard sqlite3_prepare_v2(connection, "INSERT OR REPLACE INTO pending_family_join (id, payload) VALUES (1, ?)", -1, &statement, nil) == SQLITE_OK else { throw sqliteError() }
+        defer { sqlite3_finalize(statement) }
+        let transient = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
+        let result = data.withUnsafeBytes { sqlite3_bind_blob(statement, 1, $0.baseAddress, Int32($0.count), transient) }
+        guard result == SQLITE_OK, sqlite3_step(statement) == SQLITE_DONE else { throw sqliteError() }
     }
 
     private func prepareSchema() throws {
@@ -72,6 +134,9 @@ public final class LibraryDatabase {
         guard sqlite3_step(statement) == SQLITE_ROW else { throw sqliteError() }
         let version = Int(sqlite3_column_int(statement, 0))
         guard version == 0 || version == 1 else { throw LibraryDataError.unsupportedVersion(version) }
+        // Auxiliary metadata keeps existing v1 snapshots readable. It is never a second outbox file.
+        try execute("CREATE TABLE IF NOT EXISTS family_state (id INTEGER PRIMARY KEY CHECK (id = 1), payload BLOB NOT NULL)")
+        try execute("CREATE TABLE IF NOT EXISTS pending_family_join (id INTEGER PRIMARY KEY CHECK (id = 1), payload BLOB NOT NULL)")
         if version == 1 {
             guard try readSnapshot() != nil else {
                 throw LibraryDataError.invalid("В базе отсутствуют данные библиотеки")

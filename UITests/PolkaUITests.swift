@@ -1,6 +1,30 @@
 import XCTest
 
 final class PolkaUITests: XCTestCase {
+    func testFamilySetupExplainsScopeAndCancelKeepsLibraryLocal() throws {
+        let app = launchFreshLibrary()
+        app.buttons["settingsButton"].tap()
+        let family = app.buttons["familySettingsLink"]
+        for _ in 0..<4 where !family.isHittable { app.swipeUp() }
+        XCTAssertTrue(family.waitForExistence(timeout: 5))
+        family.tap()
+        XCTAssertTrue(app.navigationBars["Семейный доступ"].waitForExistence(timeout: 5))
+        XCTAssertEqual(app.staticTexts["familySyncStatus"].label, "Библиотека только на этом устройстве")
+        let enable = app.buttons["enableFamilyButton"]
+        XCTAssertTrue(enable.isHittable)
+        enable.tap()
+        XCTAssertTrue(app.buttons["Продолжить с iCloud"].waitForExistence(timeout: 5))
+        if app.buttons["Отмена"].exists { app.buttons["Отмена"].tap() }
+        else { app.navigationBars["Семейный доступ"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap() }
+        XCTAssertFalse(app.buttons["Продолжить с iCloud"].exists)
+        XCTAssertEqual(app.staticTexts["familySyncStatus"].label, "Библиотека только на этом устройстве")
+        XCTAssertTrue(enable.exists)
+        let shot = XCTAttachment(screenshot: app.screenshot())
+        shot.name = "Family sharing before consent"
+        shot.lifetime = .keepAlways
+        add(shot)
+    }
+
     func testLibraryListLayoutSupportsFilteringAndPersistsAfterRelaunch() throws {
         let app = launchFreshLibrary()
         let grid = app.buttons["libraryLayoutGrid"]
@@ -130,7 +154,7 @@ final class PolkaUITests: XCTestCase {
         app.buttons["settingsButton"].tap()
         let version = app.staticTexts["appVersion"]
         XCTAssertTrue(version.waitForExistence(timeout: 5))
-        XCTAssertTrue(version.label.contains("1.0.0 (12)"))
+        XCTAssertTrue(version.label.contains("1.1.0 (13)"))
         let systemIsDark = try settingsBackgroundBrightness(in: app, navigationTitle: "Настройки") < 0.5
 
         app.buttons["appearancePicker"].tap()

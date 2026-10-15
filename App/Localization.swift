@@ -29,7 +29,7 @@ enum L10n {
 
     private static let translations: [String: [String: String]] = {
         var result: [String: [String: String]] = [:]
-        for name in ["Library", "Catalog", "Settings", "Errors", "Topics", "Covers", "ScanFlow", "Privacy"] {
+        for name in ["Library", "Catalog", "Settings", "Errors", "Topics", "Covers", "ScanFlow", "Privacy", "Family"] {
             let url = Bundle.main.url(forResource: name, withExtension: "json", subdirectory: "Localization")
                 ?? Bundle.main.url(forResource: name, withExtension: "json")
             guard let url, let data = try? Data(contentsOf: url),
@@ -43,6 +43,7 @@ enum L10n {
     }()
 
     static func error(_ error: Error) -> String {
+        if error is FamilyError { return familyErrorText(error) }
         if let error = error as? CatalogError {
             switch error {
             case .invalidISBN: return L("Некорректный ISBN. Проверьте цифры и контрольную сумму.")
