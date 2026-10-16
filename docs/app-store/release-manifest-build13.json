@@ -22,9 +22,9 @@
   "testflight_status": "Ready to Submit",
   "cloud_schema": "deployed to Production; FamilyLibrarySnapshot formatVersion INT64 and payload ASSET; no public role grants",
   "website_commit": "f434bca5db3fcf6fd3599b6f1ddefd9ef126d1f6",
-  "app_review_submitted": false,
+  "app_review_submitted": true,
   "public_release": false,
-  "app_store_version_status": "Ready for Review (draft, not submitted)",
+  "app_store_version_status": "Waiting for Review",
   "selected_build": "13",
   "metadata_locales": [
     "uk",
@@ -43,5 +43,9 @@
     "cross_account_sync": "not tested",
     "permission_revocation": "not tested",
     "library_data_modified": false
-  }
+  },
+  "app_review_submitted_date": "2026-10-16",
+  "release_mode": "automatic after approval",
+  "submission_authorization": "User explicitly requested submission on 2026-10-16 and chose to test family access after App Store release",
+  "submission_confirmation": "App Store Connect: 1 item submitted; version 1.1.0 Waiting for Review"
 }
