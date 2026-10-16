@@ -15,7 +15,7 @@
   ],
   "archive_checks": "36/36",
   "upload_status": "delivered and processed",
-  "two_account_device_test": "not performed",
+  "two_account_device_test": "not performed: user confirmed no second device or Apple account on 2026-10-16",
   "app_store_id": "6819029934",
   "app_store_build_id": "c194e7f3-aeb8-4a2e-9ece-ddeff4898930",
   "delivered_at": "2026-10-14T22:55:00+03:00",
@@ -32,5 +32,16 @@
     "ru"
   ],
   "required_metadata_validation": "passed",
-  "testflight_groups": 0
+  "testflight_groups": 0,
+  "live_verification_attempt": {
+    "date": "2026-10-16",
+    "physical_devices_discovered": 1,
+    "second_apple_account_available": false,
+    "simulator_installed_version": "1.1.0 (13)",
+    "physical_app_version": "not verified: device connection failed after Xcode component authorization error",
+    "invitation_acceptance": "not tested",
+    "cross_account_sync": "not tested",
+    "permission_revocation": "not tested",
+    "library_data_modified": false
+  }
 }
