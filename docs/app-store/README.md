@@ -31,6 +31,22 @@
 
 Контейнер `iCloud.com.bookslibrary.polka` привязан к `com.bookslibrary.polka` с подтверждения пользователя. iCloud/CloudKit и push включены. Тип `FamilyLibrarySnapshot` с полями `formatVersion: INT64` и `payload: ASSET` развернут в Production; публичных разрешений на него нет. Реальные библиотеки и приглашения при настройке не создавались.
 
+### Исправление схемы приглашений 18 октября 2026
+
+При проверке ошибки включения семейного доступа обнаружено, что 14 октября была опубликована неполная схема: служебного типа `cloudkit.share` не было ни в Development, ни в Production. В Production Logs сохранение в 17:03:53 UTC (20:03:53 по Киеву, время пользовательского скриншота) завершилось `RecordSave / USER_ERROR / BAD_REQUEST`, `returnedRecordTypes: _pcs_data`. Содержимое библиотек и идентификаторы аккаунтов в репозиторий не копировались.
+
+18 октября около 17:18 UTC в Development импортирована полная [схема Bookreign](cloudkit/bookreign.ckdb), затем опубликована в Production. CloudKit подтвердил `Validation Passed`, `The schema was successfully imported` и `The schema is deployed to Production`. В Production проверено наличие `cloudkit.share` с девятью полями. Diff содержит ровно один новый тип и один индекс; изменений Security Roles нет. Прежняя схема сохранена [отдельно](cloudkit/2026-10-18-production-before-share.ckdb). Существующие определения сохранены побайтно; новые публичные разрешения не добавлены, данные и зоны не удалялись. Приложение и сборка 13 не менялись.
+
+Поля служебного типа сверены с SDK CloudKit и [схемой официального примера Apple](https://github.com/apple/ml-comlet/blob/main/ckschema.ckdb); Apple также [документирует импорт этой схемы](https://github.com/apple/ml-comlet#build-instructions). Причину отсутствия `cloudkit.share` в Production и необходимость публикации типа [объясняет Apple DTS](https://developer.apple.com/forums/thread/841618). В подготовленном файле отсутствуют публичные GRANT для книг и приглашений.
+
+После исправления пользователь должен повторить «Повторити ввімкнення» в установленном приложении. До подтверждения результата создание приглашения на устройстве остаётся непроверенным; эта серверная правка не заменяет тест синхронизации с другой учётной записью.
+
+Для следующих выпусков с семейным доступом:
+
+1. Проверять в обеих средах не только `FamilyLibrarySnapshot`, но и `cloudkit.share`, включая `cloudkit.title: STRING` и необходимые служебные поля.
+2. При любом изменении схемы сохранять экспорт, проверять diff и отсутствие расширения публичных прав, затем читать результат публикации и состав Production.
+3. Проверять создание закрытого приглашения именно в Production, а затем принятие и синхронизацию с другой учётной записью. Локальные unit/UI-тесты и успешная доставка IPA не подтверждают рабочую схему CloudKit.
+
 Подписанный архив: `Release/Family-1.1.0-13/Bookreign-1.1.0-13.xcarchive`. IPA: `Release/Family-1.1.0-13/AppStoreExport/Polka.ipa`. Внутреннее имя Polka сохранено для совместимости, пользовательское имя — Bookreign. Контрольные суммы записаны в манифесте.
 
 CLI не видит учётную запись Xcode, поэтому архив собран вручную с существующим Apple Distribution и профилем `Bookreign App Store iCloud 2026`. Локальный файл параметров экспорта: `Release/Family-1.1.0-13/ExportOptions.plist`; параметры подписи: `CODE_SIGN_STYLE=Manual`, `CODE_SIGN_IDENTITY=Apple Distribution`, `PROVISIONING_PROFILE_SPECIFIER=Bookreign App Store iCloud 2026`. `Scripts/prepare-app-store.sh` использует автоматическую подпись и требует настроенной учётной записи Xcode; он не выполняет загрузку. Готовые архивы не перезаписывать.

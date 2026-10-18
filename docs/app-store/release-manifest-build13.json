@@ -20,7 +20,7 @@
   "app_store_build_id": "c194e7f3-aeb8-4a2e-9ece-ddeff4898930",
   "delivered_at": "2026-10-14T22:55:00+03:00",
   "testflight_status": "Ready to Submit",
-  "cloud_schema": "deployed to Production; FamilyLibrarySnapshot formatVersion INT64 and payload ASSET; no public role grants",
+  "cloud_schema": "FamilyLibrarySnapshot deployed 2026-10-14; missing cloudkit.share added and deployed 2026-10-18; no public role grants on either type",
   "website_commit": "f434bca5db3fcf6fd3599b6f1ddefd9ef126d1f6",
   "app_review_submitted": true,
   "public_release": false,
@@ -47,5 +47,24 @@
   "app_review_submitted_date": "2026-10-16",
   "release_mode": "automatic after approval",
   "submission_authorization": "User explicitly requested submission on 2026-10-16 and chose to test family access after App Store release",
-  "submission_confirmation": "App Store Connect: 1 item submitted; version 1.1.0 Waiting for Review"
+  "submission_confirmation": "App Store Connect: 1 item submitted; version 1.1.0 Waiting for Review",
+  "cloud_schema_hotfix": {
+    "date": "2026-10-18",
+    "deployed_at_utc": "2026-10-18T17:18:00Z",
+    "container": "iCloud.com.bookslibrary.polka",
+    "cause": "cloudkit.share absent from Development and Production",
+    "observed_failure": "Production RecordSave USER_ERROR / BAD_REQUEST, returnedRecordTypes _pcs_data at 17:03:53 UTC",
+    "added_record_type": "cloudkit.share",
+    "added_fields": 9,
+    "added_indexes": 1,
+    "security_role_changes": 0,
+    "existing_schema_unchanged": true,
+    "schema_file": "cloudkit/bookreign.ckdb",
+    "schema_sha256": "2c76d7a1882234f55dca2b5269c4ed42dda9a04e77ce6bf368657fe3acd8b364",
+    "validation": "CloudKit import Validation Passed, import succeeded, Changes Deployed, cloudkit.share visible in Production",
+    "application_binary_changed": false,
+    "library_records_modified_by_agent": false,
+    "device_retry_result": "awaiting user confirmation",
+    "cross_account_test": "not performed"
+  }
 }
